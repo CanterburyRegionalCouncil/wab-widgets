@@ -10,6 +10,7 @@
   "outWkid": 2965,
   "showLayout": true,
   "showOpacitySlider": true,
+  "dpiOptions": [ { "label": "Low", "value": 50 }, { "label": "Normal", "value": 96 }, { "label": "High", "value": 200 } ],
   "layoutParams": {
     "Letter ANSI A Landscape": {
       "alias": "Letter Landscape (ANSI A)",

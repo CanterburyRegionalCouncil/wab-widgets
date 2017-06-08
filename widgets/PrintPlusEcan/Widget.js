@@ -53,7 +53,6 @@ define([
           } else if (this._portalPrintTaskURL) {
             this.config.serviceURL = this._portalPrintTaskURL;
           }
-
           var asyncDef = this.isAsync(this.config.serviceURL);
           asyncDef.then(lang.hitch(this, function(async) {
             this.print = new Print({
@@ -68,6 +67,7 @@ define([
               defaultDpi: this.config.defaultDpi || 96,
               noTitleBlockPrefix: this.config.noTitleBlockPrefix,
               layoutParams: this.config.layoutParams,
+              dpiOptions: this.config.dpiOptions,
               relativeScale: this.config.relativeScale,
               relativeScaleFactor: this.config.relativeScaleFactor,
               scalePrecision: this.config.scalePrecision,

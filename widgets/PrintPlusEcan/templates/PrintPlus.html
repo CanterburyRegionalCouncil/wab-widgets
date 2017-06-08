@@ -92,8 +92,7 @@
                   ${nls.dpi}:
                 </td>
                 <td>
-                  <input type="text" data-dojo-type="dijit/form/NumberTextBox" data-dojo-props="name:'dpi',required:true,value:'${defaultDpi}',style:'width:100px;'"
-                         data-dojo-attach-event="onChange:_adjustMapSketch"/>
+                  <input type="select" data-dojo-type="dijit/form/Select" data-dojo-props="name:'dpi',required:true,value:'${defaultDpi}',style:'width:100px;'" data-dojo-attach-point="dpiDijit" data-dojo-attach-event="onChange:_adjustMapSketch" />
                 </td>
               </tr>
             </table>

@@ -115,6 +115,7 @@ define([
     defaultDpi: 90,
     noTitleBlockPrefix: null,
     layoutParams: null,
+    dpiOptions: [],
     mapSheetParams: {},
     relativeScale: null,
     titleBlock: true,
@@ -603,6 +604,11 @@ define([
         this.formatDijit.set('value', this.defaultFormat);
       } else {
         this.formatDijit.set('value', Format[0].defaultValue);
+      }
+
+      this.dpiDijit.addOption(this.dpiOptions);
+      if (this.defaultDpi) {
+        this.dpiDijit.set('value', this.defaultDpi);
       }
     },
     
