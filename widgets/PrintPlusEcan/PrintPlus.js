@@ -607,6 +607,7 @@ define([
     },
     
     print: function() {
+      this.toggleLayoutLayer(false);
       this.preserve = this.preserveFormDijit.get('value');
       if (!this.layoutLayer) {
         // If not showing the layout footprint, just call the original print function (renamed to submitPrintJob).
@@ -918,7 +919,7 @@ define([
         mapDims = { x: pageSize.x - mapOffsets.x * 2, y: pageSize.y - mapOffsets.y * 2 };
       }
       
-      // Calculate the boundaries for the print area
+      //Calculate the boundaries for the print area
       var minX = centerPt.x - mapDims.x / 2 * scale * unitRatio.x;
       var minY = centerPt.y - mapDims.y / 2 * scale * unitRatio.y;
       var maxX = centerPt.x + mapDims.x / 2 * scale * unitRatio.x;
@@ -949,109 +950,22 @@ define([
       // Calculate the size of the close symbol in pixels
       var closeBtnSize = Math.min(30, Math.round(layoutMargin / mapUnitsToPixels) - 2);
       // Set the line widths of the layout and close symbols
-      var layoutLineWidth = Math.max(Math.round(closeBtnSize / 3), 1);
-      var closeBtnLineWidth = Math.max(Math.round(closeBtnSize / 6), 1);
-      // Calculate the offset for the close symbol in map units
-      var closeBtnOffset = (closeBtnSize + 4) * mapUnitsToPixels / 2;
-      // Establish the point for the close symbol
-      var ptCloseBtn = new Point(maxX - closeBtnOffset, maxY - closeBtnOffset, this.map.spatialReference);
-      
-      // list the points in clockwise order (this is the paper)
-      var ringLayoutPerim = [[minX, minY], [minX, maxY], [maxX, maxY], [maxX, minY], [minX, minY]];
+      var layoutLineWidth = 1;
         
       var geomLayout = new Polygon(this.map.spatialReference);
       geomLayout.addRing(ringMapArea);
-      geomLayout.addRing(ringLayoutPerim);
         
       var symLayout = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
                           new CartographicLineSymbol(
                             CartographicLineSymbol.STYLE_SOLID, 
-                            new Color([255,0,0,0.60]), 
+                            new Color([10,0,0,0.60]), 
                             layoutLineWidth, 
                             CartographicLineSymbol.CAP_ROUND, 
                             CartographicLineSymbol.JOIN_ROUND),
-                          new Color([255,0,0,0.40]));
+                          new Color([10,0,0,0.40]));
         
       var graLayout = new Graphic(geomLayout, symLayout);
       this.layoutLayer.add(graLayout);
-      
-      // Create the close symbols
-      var symCloseBtnX = new SimpleMarkerSymbol({
-        "color": [0,0,0,255],
-        "size": 10,
-        "angle": 0,
-        "xoffset": 0,
-        "yoffset": 0,
-        "type": "esriSMS",
-        "style": "esriSMSX",
-        "outline": {
-          "color": [0,0,0,255],
-          "width": 2,
-          "type": "esriSLS",
-          "style": "esriSLSSolid"
-        }
-      });
-      symCloseBtnX.setSize(closeBtnSize - closeBtnLineWidth);
-      symCloseBtnX.outline.width = closeBtnLineWidth;
-      
-      var symCloseBtnOutline = new SimpleMarkerSymbol({
-        "color": [0,0,0,0],
-        "size": 12,
-        "angle": 0,
-        "xoffset": 0,
-        "yoffset": 0,
-        "type": "esriSMS",
-        "style": "esriSMSSquare",
-        "outline": {
-          "color": [0,0,0,255],
-          "width": 1,
-          "type": "esriSLS",
-          "style": "esriSLSSolid"
-        }
-      });
-      symCloseBtnOutline.setSize(closeBtnSize);
-      symCloseBtnOutline.outline.width = closeBtnLineWidth;
-      
-      // Establish the point for the instruction text (center of the bottom margin area).
-      var ptInstruction = new Point((minX + maxX) / 2, minY + mapOffsets.y * scale * unitRatio.y / 2, this.map.spatialReference);
-        
-      // Create the text symbol
-      var symInstruction = new TextSymbol({
-        "type": "esriTS",
-        "color": [0,0,0,255],
-        "verticalAlignment": "middle",
-        "horizontalAlignment": "center"
-      });
-      var fontInstruction = new Font({
-        "family": "Arial",
-        "size": 12,
-        "style": "italic",
-        "weight": "normal",
-        "decoration": "none"
-      });
-      fontInstruction.setSize(closeBtnSize + 2 + 'px');
-      symInstruction.setFont(fontInstruction);
-      symInstruction.setText(this.nls.layoutInstruction);
-      
-      // Add the close graphics
-      var graCloseBtnOutline = new Graphic(ptCloseBtn, symCloseBtnOutline);
-      graCloseBtnOutline.id = 'closeLayoutSq';
-      this.layoutLayer.add(graCloseBtnOutline);
-      var graCloseBtnX = new Graphic(ptCloseBtn, symCloseBtnX);
-      graCloseBtnX.id = 'closeLayoutX';
-      this.layoutLayer.add(graCloseBtnX);
-      
-      var graInstruction = new Graphic(ptInstruction, symInstruction);
-      var ptInstructionScreen = this.map.toScreen(ptInstruction);
-      var pt1Screen = ptInstructionScreen.offset(graInstruction.symbol.getWidth() / 2, -(closeBtnSize + 12) / 2);
-      var pt1Map = this.map.toMap(pt1Screen);
-      var halfWidth = Math.min((maxX - minX) / 2, pt1Map.x - ptInstruction.x);
-      var halfHeight = Math.min(mapOffsets.y * scale * unitRatio.y / 2, pt1Map.y - ptInstruction.y);
-      var instructionExtent = new Extent(ptInstruction.x - halfWidth, ptInstruction.y - halfHeight, ptInstruction.x + halfWidth, ptInstruction.y + halfHeight, this.map.spatialReference);
-      var symBackground = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID, null, new Color([255,0,0,0.8]));
-      var graInstructionBackground = new Graphic(instructionExtent, symBackground);
-      this.layoutLayer.add(graInstructionBackground);
-      this.layoutLayer.add(graInstruction);
     },
     
     moveMapSheet: function(mOffset) {
