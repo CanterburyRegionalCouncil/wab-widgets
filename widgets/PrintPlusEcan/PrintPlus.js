@@ -382,8 +382,7 @@ define([
         // If we still want to show the layout, create a graphics layer for it.
         this.layoutLayer = new esri.layers.GraphicsLayer({ id: this.layoutLayerId, opacity: 1.0 });
 
-        domConstruct.place(domConstruct.toDom('<div id="mouseTipWithinLayout">'+ this.moveMapWithinLayoutText + '</div>'), "main-page");
-        domConstruct.place(domConstruct.toDom('<div id="moveMapAndLayout">'+ this.moveMapAndLayoutText + '</div>'), "main-page");
+        this.createMouseToolTips();
 
         this.layoutLayer.spatialReference = this.map.spatialReference;
         this.map.addLayer(this.layoutLayer);
@@ -415,12 +414,6 @@ define([
             mouseTipWithinLayout.style("top", evt.pageY + 15 + "px");
             mouseTipWithinLayout.style("left", evt.pageX + 15 + "px");
         });
-        // this.map.on('MouseOver', function(evt) {
-        //   query("#moveMapAndLayout").style("display", "block");
-        // });
-        // this.map.on('MouseOut', function(evt) {
-        //   query("#moveMapAndLayout").style("display", "none");
-        // });
 
         this.toggleMapPanHandlers(true);
         if (this.reason === 'helpContent') {
@@ -433,17 +426,15 @@ define([
     _onOpen: function() {
       if (this.layoutLayer) {
         // this.onStateChange('DOCKED', this.isDocked);
-        this.toggleLayoutLayer(true);
+        this._toggleShowLayout(true, true);
       }
     },
     
     _onClose: function() {
       this.isDocked = false;
-      if (this.layoutLayer && !this.showLayoutDijit.get('value')) {
-        this.toggleLayoutLayer(false);
-      }
+      this._toggleShowLayout(false, false);
     },
-    
+
     _resize: function(isDocked) {
       // isDocked is true if the widget is docked (fills the browser window).  This will always be true for devices with small screens (phones),
       // but may be true or false as the browser window size is changed on devices with larger screens.
@@ -1482,8 +1473,10 @@ define([
         this.layoutLayer.clear();
         this.drawMapSheet(this.mapAreaCenter);
         this.adjustLayoutToMap(null, this.map.extent);
+        this.createMouseToolTips();
       } else {
         this.layoutLayer.clear();
+        this.detroyMouseToolTyps();
         if (layoutClicked) {
           this.showLayoutDijit.set('value', show);
           // turn off layoutLayer if the widget is closed
@@ -1497,6 +1490,16 @@ define([
       }
     },
     
+    createMouseToolTips:  function(){
+        domConstruct.place(domConstruct.toDom('<div id="mouseTipWithinLayout">'+ this.moveMapWithinLayoutText + '</div>'), "main-page");
+        domConstruct.place(domConstruct.toDom('<div id="moveMapAndLayout">'+ this.moveMapAndLayoutText + '</div>'), "main-page");
+    },
+
+    detroyMouseToolTyps: function(){
+        dojo.destroy("mouseTipWithinLayout");
+        dojo.destroy("moveMapAndLayout");
+    },
+
     toggleLayoutLayer: function(visible) {
       this.layoutLayer.visible = visible;
     },
