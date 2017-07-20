@@ -315,7 +315,7 @@ define([
     
     startup: function() {
       this.inherited(arguments);
-      
+
       // Just in case startup() gets called twice - BEGIN
       if (this.layoutInitialized) {
         return;
@@ -1371,10 +1371,14 @@ define([
       function getLabels(minScale, snapInterval, scaleIndices) {
         var labelArray = [];
         var scale;
-        for (var i = 0; i < scaleIndices.length; i++) {
-          scale = minScale + (snapInterval * scaleIndices[i]);
-          labelArray.push(number.format(scale, {pattern: '###,###'}));
+        
+        if(scaleIndices){
+          for (var i = 0; i < scaleIndices.length; i++) {
+            scale = minScale + (snapInterval * scaleIndices[i]);
+            labelArray.push(number.format(scale, {pattern: '###,###'}));
+          }
         }
+        
         return labelArray;
       }
     },

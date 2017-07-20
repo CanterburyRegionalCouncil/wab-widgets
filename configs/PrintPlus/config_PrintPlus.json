@@ -1,253 +1,82 @@
 {
-  "serviceURL": "http://utility.arcgisonline.com/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",
-  "defaultTitle": "ArcGIS WebMap",
-  "defaultAuthor": "ArcGIS WebApp Builder",
+  "serviceURL": "https://arcgis.ecan.govt.nz/arcgis/rest/services/Printing/MapPrinting/GPServer/Export%20Web%20Map",
+  "defaultTitle": "Ecan Maps",
+  "defaultAuthor": "Ecan Maps",
   "defaultCopyright": "",
   "defaultFormat": "PDF",
-  "defaultLayout": "Letter ANSI A Landscape",
+  "defaultLayout": "A3 Landscape",
   "defaultDpi": 96,
   "noTitleBlockPrefix": "No TB ",
   "outWkid": 2965,
   "showLayout": true,
-  "showOpacitySlider": true,
-  "dpiOptions": [ { "label": "Low", "value": 50 }, { "label": "Normal", "value": 96 }, { "label": "High", "value": 200 } ],
+  "showOpacitySlider": false,
+  "dpiOptions": [ { "label": "Normal", "value": 96 }, { "label": "High", "value": 200 } ],
   "moveMapWithinLayoutText" : "move map within layout",
   "moveMapAndLayoutText" : "move map and layout",
   "layoutParams": {
-    "Letter ANSI A Landscape": {
-      "alias": "Letter Landscape (ANSI A)",
-      "units": "esriInches",
-      "params": [
-        {
-          "x": 11,
-          "y": 8.5
-        },
-        {
-          "x": 10,
-          "y": 6.25
-        },
-        {
-          "x": 0.5,
-          "y": 1.5
-        },
-        {
-          "x": 0.5,
-          "y": 0.5
-        }
-      ]
-    },
-    "Letter ANSI A Portrait": {
-      "alias": "Letter Portrait (ANSI A)",
-      "units": "esriInches",
-      "params": [
-        {
-          "x": 8.5,
-          "y": 11
-        },
-        {
-          "x": 7.5,
-          "y": 8
-        },
-        {
-          "x": 0.5,
-          "y": 2.25
-        },
-        {
-          "x": 0.5,
-          "y": 0.5
-        }
-      ]
-    },
-    "Tabloid ANSI B Landscape": {
-      "alias": "Tabloid Landscape (ANSI B)",
-      "units": "esriInches",
-      "params": [
-        {
-          "x": 17,
-          "y": 11
-        },
-        {
-          "x": 16,
-          "y": 7.75
-        },
-        {
-          "x": 0.5,
-          "y": 2.5
-        },
-        {
-          "x": 0.5,
-          "y": 0.5
-        }
-      ]
-    },
-    "Tabloid ANSI B Portrait": {
-      "alias": "Tabloid Portrait (ANSI B)",
-      "units": "esriInches",
-      "params": [
-        {
-          "x": 11,
-          "y": 17
-        },
-        {
-          "x": 10,
-          "y": 11.75
-        },
-        {
-          "x": 0.5,
-          "y": 4.5
-        },
-        {
-          "x": 0.5,
-          "y": 0.5
-        }
-      ]
-    },
     "A4 Landscape": {
       "alias": "A4 Landscape",
       "units": "esriCentimeters",
-      "params": [
-        {
-          "x": 29.7,
-          "y": 21
-        },
-        {
-          "x": 27.7,
-          "y": 15.9
-        },
-        {
-          "x": 1,
-          "y": 3.8
-        },
-        {
-          "x": 1,
-          "y": 1
-        }
-      ]
+      "params": [{ "x": 29.7, "y": 21 }, { "x": 23.5, "y": 19.0 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
     },
-    "A4 Portrait": {
-      "alias": "A4 Portrait",
+    "A4 Portrait with Overview": {
+      "alias": "A4 Portrait with Overview",
       "units": "esriCentimeters",
-      "params": [
-        {
-          "x": 21,
-          "y": 29.7
-        },
-        {
-          "x": 19,
-          "y": 22.3
-        },
-        {
-          "x": 1,
-          "y": 5.7
-        },
-        {
-          "x": 1,
-          "y": 1
-        }
-      ]
+      "params": [{ "x": 21, "y": 29.7 }, { "x": 20.3, "y": 20.3 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },
+    "A4 Portrait Fullpage": {
+      "alias": "A4 Portrait Fullpage",
+      "units": "esriCentimeters",
+      "params": [{ "x": 21, "y": 29.7 }, { "x": 20.3, "y": 24.7 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
     },
     "A3 Landscape": {
       "alias": "A3 Landscape",
       "units": "esriCentimeters",
-      "params": [
-        {
-          "x": 42,
-          "y": 29.7
-        },
-        {
-          "x": 40,
-          "y": 21.7
-        },
-        {
-          "x": 1,
-          "y": 6.3
-        },
-        {
-          "x": 1,
-          "y": 1
-        }
-      ]
+      "params": [{ "x": 42, "y": 29.7 }, { "x": 33.2, "y": 26.9 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
     },
-    "A3 Portrait": {
-      "alias": "A3 Portrait",
+    "A3 Landscape Fullpage": {
+      "alias": "A3 Landscape Fullpage",
       "units": "esriCentimeters",
-      "params": [
-        {
-          "x": 29.7,
-          "y": 42
-        },
-        {
-          "x": 27.7,
-          "y": 29
-        },
-        {
-          "x": 1,
-          "y": 11
-        },
-        {
-          "x": 1,
-          "y": 1
-        }
-      ]
+      "params": [{ "x": 42, "y": 29.7 }, { "x": 41.3, "y": 26.9 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
     },
+    "A3 Landscape with 15 second Lat-Long Graticules": {
+      "alias": "A3 Landscape with 15 second Lat-Long Graticules",
+      "units": "esriCentimeters",
+      "params": [{ "x": 42, "y": 29.7 }, { "x": 32.7, "y": 25.2 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },
+    "A3 Portrait Fullpage": {
+      "alias": "A3 Portrait Fullpage",
+      "units": "esriCentimeters",
+      "params": [{ "x": 29.7, "y": 42 }, { "x": 28.7, "y": 35 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },
+    "A1 Landscape - Slow": {
+      "alias": "A1 Landscape - Slow",
+      "units": "esriCentimeters",
+      "params": [{ "x": 84.1, "y": 59.4 }, { "x": 71.6, "y": 53.4 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },
+    "A1 Landscape Fullpage - Slow": {
+      "alias": "A1 Landscape Fullpage - Slow",
+      "units": "esriCentimeters",
+      "params": [{ "x": 84.1, "y": 59.4 }, { "x": 82.7, "y": 53.8 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },        
+    "A1 Portrait Fullpage - Slow": {
+      "alias": "A1 Portrait Fullpage - Slow",
+      "units": "esriCentimeters",
+      "params": [{ "x": 59.4, "y": 84.1 }, { "x": 57.4, "y": 73.9 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
+    },        
     "MAP_ONLY": {
       "alias": "Just the Map",
       "units": "NaN",
-      "params": [
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        },
-        {
-          "x": 0,
-          "y": 0
-        }
-      ]
+      "params": [{ "x": 0, "y": 0 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }, { "x": 0, "y": 0 }]
     }
   },
-  "relativeScale": "(1&quot; = [value]')",
-  "relativeScaleFactor": 0.08333333,
+  "relativeScale": "(1cm = [value]km)",
+  "relativeScaleFactor": 0.001,
   "scalePrecision": 0,
   "mapScales": [
-    6000000,
-    4800000,
-    3600000,
-    2400000,
-    1200000,
-    960000,
-    720000,
-    600000,
-    480000,
-    360000,
-    240000,
-    120000,
-    96000,
-    72000,
-    60000,
-    48000,
-    36000,
-    24000,
-    12000,
-    9600,
-    7200,
-    6000,
-    4800,
-    3600,
-    2400,
-    1200,
-    960,
-    720,
-    600,
-    480,
-    360,
-    300
+    16000000, 8000000, 4000000, 2000000, 1000000, 750000, 500000,
+    250000, 100000,70000,50000, 25000, 20000, 15000,14000,13000,12000,11000, 10000,9000,
+    8000,7000, 6000,5000, 4000,3000, 2000, 1000, 900,800,700,600, 500,400,300, 250, 100,
+    50
   ]
 }
