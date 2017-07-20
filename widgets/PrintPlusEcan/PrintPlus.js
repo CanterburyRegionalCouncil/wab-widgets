@@ -5,6 +5,7 @@ define([
   'dojo/_base/lang',
   'dojo/aspect',
   'dojo/dom',
+  'dojo/html',
   'dojo/dom-attr',
   'dojo/dom-class',
   'dojo/dom-construct',
@@ -61,6 +62,7 @@ define([
   lang,
   aspect,
   dom,
+  html,
   domAttr,
   domClass,
   domConstruct,
@@ -379,6 +381,10 @@ define([
       if (this.showLayout) {
         // If we still want to show the layout, create a graphics layer for it.
         this.layoutLayer = new esri.layers.GraphicsLayer({ id: this.layoutLayerId, opacity: 1.0 });
+
+        domConstruct.place(domConstruct.toDom('<div id="mouseTipWithinLayout">'+ this.moveMapWithinLayoutText + '</div>'), "main-page");
+        domConstruct.place(domConstruct.toDom('<div id="moveMapAndLayout">'+ this.moveMapAndLayoutText + '</div>'), "main-page");
+
         this.layoutLayer.spatialReference = this.map.spatialReference;
         this.map.addLayer(this.layoutLayer);
         this.layoutLayer.enableMouseEvents();
@@ -390,6 +396,32 @@ define([
             this._toggleShowLayout(false, true);
           }
         }));
+        this.layoutLayer.on('MouseMove', function(evt) {
+            var mouseTipWithinLayout = query("#mouseTipWithinLayout");
+            mouseTipWithinLayout.style("top", evt.pageY + 15 + "px");
+            mouseTipWithinLayout.style("left", evt.pageX + 15 + "px");
+        });
+        this.layoutLayer.on('MouseOver', function(evt) {
+          query("#mouseTipWithinLayout").style("display", "block");
+          query("#moveMapAndLayout").style("display", "none");
+        });
+        this.layoutLayer.on('MouseOut', function(evt) {
+          query("#mouseTipWithinLayout").style("display", "none");
+          query("#moveMapAndLayout").style("display", "block");
+        });
+
+        this.map.on('MouseMove', function(evt) {
+            var mouseTipWithinLayout = query("#moveMapAndLayout");
+            mouseTipWithinLayout.style("top", evt.pageY + 15 + "px");
+            mouseTipWithinLayout.style("left", evt.pageX + 15 + "px");
+        });
+        // this.map.on('MouseOver', function(evt) {
+        //   query("#moveMapAndLayout").style("display", "block");
+        // });
+        // this.map.on('MouseOut', function(evt) {
+        //   query("#moveMapAndLayout").style("display", "none");
+        // });
+
         this.toggleMapPanHandlers(true);
         if (this.reason === 'helpContent') {
           // This widget was loaded just to populate the Help content, so don't show the layout.
@@ -397,7 +429,7 @@ define([
         }
       }
     },
-    
+
     _onOpen: function() {
       if (this.layoutLayer) {
         // this.onStateChange('DOCKED', this.isDocked);
@@ -1478,6 +1510,7 @@ define([
       return array3;
     }
   });
+
 
   // Print result dijit
   var PrintResultDijit = declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {

@@ -95,3 +95,35 @@
 }
 
 
+#mouseTipWithinLayout {
+    /* Required */
+    position: absolute;
+    z-index: 99999;
+    display: none;
+    
+    /* Optional */
+    font-size: 12px;
+    max-width: 250px;
+    height: auto;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px #666;
+    background: #FD0;
+} 
+
+#moveMapAndLayout {
+    /* Required */
+    position: absolute;
+    z-index: 99999;
+    display: block;
+    
+    /* Optional */
+    font-size: 12px;
+    max-width: 250px;
+    height: auto;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px #666;
+    color: white;
+    background: rgb(151, 149, 150);
+}

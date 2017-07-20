@@ -68,6 +68,8 @@ define([
               noTitleBlockPrefix: this.config.noTitleBlockPrefix,
               layoutParams: this.config.layoutParams,
               dpiOptions: this.config.dpiOptions,
+              moveMapWithinLayoutText: this.config.moveMapWithinLayoutText,
+              moveMapAndLayoutText: this.config.moveMapAndLayoutText,
               relativeScale: this.config.relativeScale,
               relativeScaleFactor: this.config.relativeScaleFactor,
               scalePrecision: this.config.scalePrecision,
