@@ -70,6 +70,7 @@ define([
               dpiOptions: this.config.dpiOptions,
               moveMapWithinLayoutText: this.config.moveMapWithinLayoutText,
               moveMapAndLayoutText: this.config.moveMapAndLayoutText,
+              widgetName: this.config.widgetName,
               relativeScale: this.config.relativeScale,
               relativeScaleFactor: this.config.relativeScaleFactor,
               scalePrecision: this.config.scalePrecision,

@@ -142,8 +142,8 @@ define([
                      [0,6,12,18,24],[0,5,10,15,20,25],[0,13,26],[0,9,18,27],[0,7,14,21,28],[0,29],[0,10,19,30],[0,8,16,23,31],
                      [0,8,16,24,32],[0,11,22,33],[0,17,34],[0,7,14,24,28,35],[0,9,18,28,36],[0,37],[0,19,38],[0,13,25,39]], 
     baseClass: "gis_PrintPlusDijit",
-    pdfIcon: require.toUrl("./widgets/PrintPlus/images/pdf.png"),
-    imageIcon: require.toUrl("./widgets/PrintPlus/images/image.png"),
+    pdfIcon: require.toUrl("./widgets/" +  this.widgetName + "/images/pdf.png"),
+    imageIcon: require.toUrl("./widgets/" +  this.widgetName + "/images/image.png"),
     printTaskURL: null,
     printTask: null,
     async: false,
@@ -1473,6 +1473,8 @@ define([
       this.togglePanZoomHandlers(show);
       // Turn the drag/swipe event handlers on or off (for adjusting the map relative to the layout)
       this.toggleMapPanHandlers(show);
+      this.toggleLayoutLayer(true);
+
       if (show) {
         this.layoutLayer.clear();
         this.drawMapSheet(this.mapAreaCenter);
@@ -1480,18 +1482,12 @@ define([
         this.createMouseToolTips();
       } else {
         this.layoutLayer.clear();
-        this.detroyMouseToolTyps();
-        if (layoutClicked) {
-          this.showLayoutDijit.set('value', show);
-          // turn off layoutLayer if the widget is closed
-          if (this.getParent().state === 'closed') {
-            this.toggleLayoutLayer(false);
-          }
-        } else {
-          // This widget was loaded just to populate the Help content, so don't show the layout.
-          this.toggleLayoutLayer(false);
-        }
+        this.detroyMouseToolTips();
       }
+
+      if (layoutClicked) {
+          this.showLayoutDijit.set('value', show);
+      } 
     },
     
     createMouseToolTips:  function(){
@@ -1499,7 +1495,7 @@ define([
         domConstruct.place(domConstruct.toDom('<div id="moveMapAndLayout">'+ this.moveMapAndLayoutText + '</div>'), "main-page");
     },
 
-    detroyMouseToolTyps: function(){
+    detroyMouseToolTips: function(){
         dojo.destroy("mouseTipWithinLayout");
         dojo.destroy("moveMapAndLayout");
     },

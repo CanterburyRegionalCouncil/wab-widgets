@@ -13,6 +13,7 @@
   "dpiOptions": [ { "label": "Normal", "value": 96 }, { "label": "High", "value": 200 } ],
   "moveMapWithinLayoutText" : "move map within layout",
   "moveMapAndLayoutText" : "move map and layout",
+  "widgetName" : "PrintPlusEcan",
   "layoutParams": {
     "A4 Landscape": {
       "alias": "A4 Landscape",
