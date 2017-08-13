@@ -396,29 +396,56 @@ define([
           }
         }));
         this.layoutLayer.on('MouseMove', function(evt) {
-            var mouseTipWithinLayout = query("#mouseTipWithinLayout");
-            mouseTipWithinLayout.style("top", evt.pageY + 15 + "px");
-            mouseTipWithinLayout.style("left", evt.pageX + 15 + "px");
+            var mouseTooltip = queryWithinLayoutTooltip();
+            mouseTooltip.style("top", evt.pageY + 15 + "px");
+            mouseTooltip.style("left", evt.pageX + 15 + "px");
         });
         this.layoutLayer.on('MouseOver', function(evt) {
-          query("#mouseTipWithinLayout").style("display", "block");
-          query("#moveMapAndLayout").style("display", "none");
+          showMouseTipWithinLayout();
         });
         this.layoutLayer.on('MouseOut', function(evt) {
-          query("#mouseTipWithinLayout").style("display", "none");
-          query("#moveMapAndLayout").style("display", "block");
+          showMoveMapAndLayout();
         });
 
         this.map.on('MouseMove', function(evt) {
-            var mouseTipWithinLayout = query("#moveMapAndLayout");
-            mouseTipWithinLayout.style("top", evt.pageY + 15 + "px");
-            mouseTipWithinLayout.style("left", evt.pageX + 15 + "px");
+            var mouseTooltip = queryMapAndLayoutTooltip();
+            mouseTooltip.style("top", evt.pageY + 15 + "px");
+            mouseTooltip.style("left", evt.pageX + 15 + "px");
+        });
+        
+        this.map.on('MouseOver', function(evt) {
+          showMoveMapAndLayout();
+        });
+        this.map.on('MouseOut', function(evt) {
+          hideTooltips();
         });
 
         this.toggleMapPanHandlers(true);
         if (this.reason === 'helpContent') {
           // This widget was loaded just to populate the Help content, so don't show the layout.
           this._toggleShowLayout(false, false);
+        }
+        
+        function showMouseTipWithinLayout(){
+          queryWithinLayoutTooltip().style("display", "block");
+          queryMapAndLayoutTooltip().style("display", "none");
+        }
+          
+        function showMoveMapAndLayout(){
+            queryWithinLayoutTooltip().style("display", "none");
+            queryMapAndLayoutTooltip().style("display", "block");
+        }
+
+        function hideTooltips(){
+          queryWithinLayoutTooltip().style("display", "none");
+          queryMapAndLayoutTooltip().style("display", "none");
+        }
+
+        function queryWithinLayoutTooltip(){
+          return query("#mouseTipWithinLayout");
+        }
+        function queryMapAndLayoutTooltip(){
+          return query("#moveMapAndLayout");
         }
       }
     },
@@ -1474,6 +1501,7 @@ define([
       // Turn the drag/swipe event handlers on or off (for adjusting the map relative to the layout)
       this.toggleMapPanHandlers(show);
       this.toggleLayoutLayer(true);
+      this.showMouseTooltipDijit.set('value', show);
 
       if (show) {
         this.layoutLayer.clear();
@@ -1488,6 +1516,18 @@ define([
       if (layoutClicked) {
           this.showLayoutDijit.set('value', show);
       } 
+    },
+
+    _toggleShowMouseToolip: function(show) {
+          var mouseTipWithinLayout = query("#mouseTipWithinLayout");
+          var mpuseTipMapAndLayout = query("#mouseTipWithinLayout");
+      if(show && mouseTipWithinLayout.length === 0 && mpuseTipMapAndLayout.length === 0) {
+          this.createMouseToolTips();
+      } 
+      
+      if(show === false) {
+          this.detroyMouseToolTips();
+      }
     },
     
     createMouseToolTips:  function(){
