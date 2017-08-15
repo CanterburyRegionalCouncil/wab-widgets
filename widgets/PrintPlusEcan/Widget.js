@@ -32,8 +32,8 @@ define([
       _portalPrintTaskURL: null,
       
       postCreate: function() {
-        this._WidgetOpacityMixinPath = 'widgets/PrintPlus/_WidgetOpacityMixin';
-        this._WidgetMetadataMixinPath = 'widgets/PrintPlus/_WidgetMetadataMixin';
+        this._WidgetOpacityMixinPath = 'widgets/' + this.config.widgetName + '/_WidgetOpacityMixin';
+        this._WidgetMetadataMixinPath = 'widgets/' + this.config.widgetName + '/_WidgetMetadataMixin';
         this.inherited(arguments);
       },
       

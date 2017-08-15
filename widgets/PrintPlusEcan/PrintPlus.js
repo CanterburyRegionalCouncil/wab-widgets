@@ -142,8 +142,6 @@ define([
                      [0,6,12,18,24],[0,5,10,15,20,25],[0,13,26],[0,9,18,27],[0,7,14,21,28],[0,29],[0,10,19,30],[0,8,16,23,31],
                      [0,8,16,24,32],[0,11,22,33],[0,17,34],[0,7,14,24,28,35],[0,9,18,28,36],[0,37],[0,19,38],[0,13,25,39]], 
     baseClass: "gis_PrintPlusDijit",
-    pdfIcon: require.toUrl("./widgets/" +  this.widgetName + "/images/pdf.png"),
-    imageIcon: require.toUrl("./widgets/" +  this.widgetName + "/images/image.png"),
     printTaskURL: null,
     printTask: null,
     async: false,
@@ -151,6 +149,8 @@ define([
     layoutLayerId: 'layoutGraphics',  // Make sure the layoutLayerId doesn't start with 'graphicsLayer' or it will be printed.
     
     postCreate: function() {
+      this.pdfIcon = require.toUrl("./widgets/" +  this.widgetName + "/images/pdf.png"),
+      this.imageIcon = require.toUrl("./widgets/" +  this.widgetName + "/images/image.png"),
       this.inherited(arguments);
       var printParams = {
         async: this.async
