@@ -788,6 +788,8 @@ function(
 
             var g = this._graphicsLayer.graphics[i];
             this._editorConfig["graphicCurrent"] = g;
+            this._editorConfig["graphicCurrentIndex"] = i; // NEW!! Are we using?!?!?! TODO!
+            this._editorConfig["graphicCurrentObjectId"] = g.attributes[this._objectIdName]; // NEW!! Are we using?!?!?! TODO!
 
             switch (type) {
             case 'draw-action-up':
@@ -1849,7 +1851,6 @@ function(
 
         _refreshDrawingsList : function () {
             if (this.drawingFolder !== null) {
-                console.log("_refreshDrawingsList");
                 var portalUrl = portalUrlUtils.getStandardPortalUrl(this.appConfig.portalUrl);
                 var portal = portalUtils.getPortal(portalUrl);
 
@@ -2312,9 +2313,69 @@ function(
                 this._syncGraphicsToLayers();
                 return;
             }
-
+            
             this._editorConfig["graphicSaved"] = graphic.toJson();
 
+            // START -----------------------------------------------------------------------------------
+            // TODO! Swap symbology here!!!
+            var index = this._editorConfig["graphicCurrentIndex"];
+            var symbol = this._graphicsLayer.graphics[index].symbol;
+            symbol.outline.setStyle('dash');
+            this._graphicsLayer.graphics[index].setSymbol(symbol);
+            this._syncGraphicsToLayers();
+            //this._editorConfig["graphicCurrent"].setSymbol(symbol);
+
+            // PROBLEM! When edit a 2nd time it picks up the modified graphic for editing layer!?!
+
+            //var objectId = this._editorConfig["graphicCurrentObjectId"];
+
+            //for (var i = 0, il = layer.graphics.length; i < il; i++) {
+            //    var g = layer.graphics[i];
+            //    if (g.attributes[this._objectIdName] === graphic.attributes[this._objectIdName]) {
+            //        drawing = g;
+            //        break;
+            //    }
+            //}
+            //// START -----------------------------------------------------------------------------------
+            //// TODO! Swap symbology here!!!
+            //var index = this._editorConfig["graphicCurrentIndex"];
+            //var symbol = this._graphicsLayer.graphics[index].symbol;
+            //symbol.outline.setStyle('dash');
+            //this._graphicsLayer.graphics[index].setSymbol(symbol);
+            ////this._editorConfig["graphicCurrent"].setSymbol(symbol);
+
+            ////var objectId = this._editorConfig["graphicCurrentObjectId"];
+            ////var geoType = graphic.geometry.type;
+            ////var layer = null;
+
+            ////if (geoType === 'point') {
+            ////    if (graphic.symbol && graphic.symbol.type === 'textsymbol') {
+            ////        layer = this._labelLayer;
+            ////    } else {
+            ////        layer = this._pointLayer;
+            ////    }
+            ////} else if (geoType === 'polyline') {
+            ////    layer = this._polylineLayer;
+            ////} else if (geoType === 'polygon' || geoType === 'extent') {
+            ////    layer = this._polygonLayer;
+            ////}
+
+            ////if (layer) {
+            ////    // Find the specific graphic
+            ////    var drawing = null;
+            ////    for (var i = 0, il = layer.graphics.length; i < il; i++) {
+            ////        var g = layer.graphics[i];
+            ////        if (g.attributes[this._objectIdName] === objectId) {
+            ////            var symbol = g.symbol;
+            ////            symbol.outline.setStyle('dash');
+            ////            g.setSymbol(symbol);
+            ////            break;
+            ////        }
+            ////    }
+            ////}
+
+            //// END -----------------------------------------------------------------------------------
+            
             var tool = 0 | Edit.MOVE;
             if (graphic.geometry.type != "point")
                 tool = tool | Edit.EDIT_VERTICES | Edit.SCALE | Edit.ROTATE;
