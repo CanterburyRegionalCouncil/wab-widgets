@@ -2299,8 +2299,11 @@ function(
         editorResetGraphic : function () {
             if (this._editorConfig["graphicSaved"] && this._editorConfig["graphicCurrent"]) {
                 var g = new Graphic(this._editorConfig["graphicSaved"]);
+                console.log('editorResetGraphic :: this._editorConfig["graphicSaved"]', this._editorConfig["graphicSaved"]);
                 this._editorConfig["graphicCurrent"].setGeometry(g.geometry);
                 this._editorConfig["graphicCurrent"].setSymbol(g.symbol);
+                console.log('editorResetGraphic :: this._editorConfig["graphicCurrent"]', this._editorConfig["graphicCurrent"]);
+                //this._syncGraphicsToLayers(); <- I added this, doesn't seem to help
             }
         },
 
@@ -2315,15 +2318,16 @@ function(
             }
             
             this._editorConfig["graphicSaved"] = graphic.toJson();
+            console.log('editorActivateGeometryEdit :: this._editorConfig["graphicSaved"]', this._editorConfig["graphicSaved"]);
 
             // START -----------------------------------------------------------------------------------
             // TODO! Swap symbology here!!!
             var index = this._editorConfig["graphicCurrentIndex"];
             var symbol = this._graphicsLayer.graphics[index].symbol;
             symbol.outline.setStyle('dash');
-            this._graphicsLayer.graphics[index].setSymbol(symbol);
+            //this._graphicsLayer.graphics[index].setSymbol(symbol);
+            this._editorConfig["graphicCurrent"].setSymbol(symbol);
             this._syncGraphicsToLayers();
-            //this._editorConfig["graphicCurrent"].setSymbol(symbol);
 
             // PROBLEM! When edit a 2nd time it picks up the modified graphic for editing layer!?!
 
