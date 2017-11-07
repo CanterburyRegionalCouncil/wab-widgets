@@ -1,0 +1,247 @@
+.widget-eLocate-ecan-setting .locator-setting {
+  width: 660px;
+  position: relative; }
+
+.widget-eLocate-ecan-setting .locator-setting .source-tips {
+  position: absolute;
+  display: none;
+  top: -23px;
+  font-size: 12px;
+  color: #a0acbf; }
+
+.widget-eLocate-ecan-setting .locator-setting .source-tips-show {
+  display: block; }
+
+.widget-eLocate-ecan-setting .locator-table {
+  width: 100%; }
+
+.widget-eLocate-ecan-setting .jimu-widget-search-locator-source-setting .source-details-section .country-code-row td {
+  padding-bottom: 30px;
+  position: relative; }
+
+.widget-eLocate-ecan-setting .jimu-widget-search-locator-source-setting .source-details-section .country-code-row .example {
+  position: absolute;
+  bottom: 8px;
+  left: 0; }
+
+.widget-eLocate-ecan-setting .jimu-rtl .jimu-widget-search-locator-source-setting .source-details-section .country-code-row .example {
+  left: auto;
+  right: 0; }
+
+.widget-eLocate-ecan-setting .jimu-widget-search-locator-source-setting .source-details-section .hide-country-code-row {
+  display: none; }
+
+.widget-eLocate-ecan-setting .source-url-section .source-table > tbody > tr:first-child > td,
+.widget-eLocate-ecan-setting .unit-edit .unit-name-section .unit-table > tbody > tr:first-child > td {
+  padding-bottom: 5px; }
+
+.widget-eLocate-ecan-setting .source-table > tbody > tr > td,
+.widget-eLocate-ecan-setting .unit-edit .unit-table > tbody > tr > td {
+  padding-bottom: 10px; }
+
+.widget-eLocate-ecan-setting .source-table > tbody > tr > .first,
+.widget-eLocate-ecan-setting .unit-edit .unit-table > tbody > tr > .first {
+  width: 140px;
+  text-align: left;
+  padding-right: 10px;
+  white-space: nowrap; }
+
+.widget-eLocate-ecan-setting .source-table > tbody > tr > .second {
+  width: 550px; }
+
+.widget-eLocate-ecan-setting .source-table > tbody > tr > .third,
+.widget-eLocate-ecan-setting .unit-edit .unit-table > tbody > tr > .third {
+  width: 70px;
+  padding-left: 10px; }
+
+.widget-eLocate-ecan-setting .jimu-rtl .source-table > tbody > tr > .first,
+.widget-eLocate-ecan-setting .jimu-rtl .unit-edit .unit-table > tbody > tr > .first {
+  padding-left: 10px;
+  padding-right: 0; }
+
+.widget-eLocate-ecan-setting .jimu-rtl .source-table > tbody > tr > .third,
+.widget-eLocate-ecan-setting .jimu-rtl .unit-edit .unit-table > tbody > tr > .third {
+  padding-left: 0;
+  padding-right: 10px; }
+
+.widget-eLocate-ecan-setting .jimu-widget-query-source-setting .source-url-section .source-table > tbody > tr > .second,
+.widget-eLocate-ecan-setting .unit-edit .unit-name-section .unit-table > tbody > tr > .second {
+  width: 755px; }
+
+.widget-eLocate-ecan-setting .source-table .jimu-btn {
+  padding: 0;
+  line-height: 30px;
+  width: 60px; }
+
+.widget-eLocate-ecan-setting .source-table > tbody > tr > .second .example,
+.widget-eLocate-ecan-setting .unit-edit .unit-table > tbody > tr > .second .example {
+  font-style: italic;
+  font-size: 12px;
+  color: #a0acbf;
+  width: 100%;
+  display: inline-block; }
+
+.widget-eLocate-ecan-setting .jimu-basic-service-chooser {
+  width: auto; }
+
+.widget-eLocate-ecan-setting .override-geocode-service-chooser-content {
+  width: 580px !important;
+  min-height: 150px !important; }
+
+.widget-eLocate-ecan-setting .override-geocode-service-chooser-content .service-browser-container {
+  display: none; }
+
+.widget-eLocate-ecan-setting .btn-add-section {
+  display: inline-block;
+  overflow: hidden;
+  height: 24px;
+  margin-left: 1px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #6f7e95; }
+
+.widget-eLocate-ecan-setting .btn-add-section .btn-add-icon {
+  float: left;
+  height: 100%;
+  width: 14px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(images/add_enable.png); }
+
+.widget-eLocate-ecan-setting .btn-add-section .btn-add-label {
+  float: left;
+  height: 100%;
+  line-height: 24px;
+  vertical-align: middle;
+  margin-left: 7px;
+  text-decoration: underline; }
+
+.widget-eLocate-ecan-setting .btn-sym-section .btn-edit-icon,
+.widget-eLocate-ecan-setting .btn-disable-section .btn-edit-icon {
+  float: left;
+  height: 100%;
+  width: 14px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(images/edit.png); }
+
+.widget-eLocate-ecan-setting .btn-sym-section .btn-edit-sym-label,
+.widget-eLocate-ecan-setting .btn-disable-section .btn-edit-disable-label {
+  float: left;
+  height: 100%;
+  line-height: 24px;
+  vertical-align: middle;
+  margin-left: 7px;
+  text-decoration: underline; }
+
+.widget-eLocate-ecan-setting .btn-sym-section,
+.widget-eLocate-ecan-setting .btn-disable-section {
+  display: inline-block;
+  overflow: hidden;
+  height: 24px;
+  margin-left: 1px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #538ec8; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .input-table {
+  width: 100%; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .input-table > tbody > tr > td {
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 4px 0; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting {
+  margin: 0;
+  padding: 0;
+  font-size: 15px; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .image-config-layout {
+  width: 100%; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .popup-config-layout .keyValues {
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .input-table .img-chooser {
+  width: 40px;
+  height: 40px; }
+
+.widget-eLocate-ecan-setting .unit-edit .help-icon,
+.widget-eLocate-ecan-setting .help-icon,
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .help-icon {
+  cursor: default;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 20px;
+  background: none repeat scroll 0% 0% #518DCA;
+  color: #FFF;
+  border-radius: 99px;
+  -moz-border-radius: 99px;
+  -webkit-border-radius: 99px;
+  /*-webkit-box-shadow: 0px 2px 4px #000000;
+  -moz-box-shadow: 0px 2px 4px #000000;
+  box-shadow: 0px 2px 4px #000000;*/
+  font-weight: bold; }
+
+.widget-eLocate-ecan-setting .unit-edit .help-icon:hover,
+.widget-eLocate-ecan-setting .help-icon:hover,
+.widget-eLocate-ecan-setting .eLocate-default-symbol-setting .help-icon:hover {
+  cursor: default;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 20px;
+  background: none repeat scroll 0% 0% #15a4fa;
+  color: #FFF;
+  border-radius: 99px;
+  -moz-border-radius: 99px;
+  -webkit-border-radius: 99px;
+  /*-webkit-box-shadow: 0px 2px 4px #000000;
+  -moz-box-shadow: 0px 2px 4px #000000;
+  box-shadow: 0px 2px 4px #000000;*/
+  font-weight: bold; }
+
+.widget-eLocate-ecan-setting .unit-edit .help-icon,
+.widget-eLocate-ecan-setting .unit-edit .help-icon:hover {
+  cursor: pointer; }
+
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a:focus,
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a:active,
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a:hover,
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a:link,
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a:visited,
+.widget-eLocate-ecan-setting .unit-edit .help-icon > a {
+  text-decoration: none;
+  color: white; }
+
+.widget-eLocate-ecan-setting .jimu-symbol-picker {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #D7D7D7;
+  height: 34px;
+  overflow: hidden;
+  padding: 0 4px; }
+
+.widget-eLocate-ecan-setting .jimu-symbol-picker .symbol-node {
+  position: relative;
+  top: 4px;
+  height: 30px; }
+
+.widget-eLocate-ecan-setting .jimu-symbol-picker .separator {
+  position: relative;
+  top: 4px;
+  width: 1px;
+  height: 24px;
+  background-color: #D7D7D7;
+  margin: 0 5px; }
+
+.widget-eLocate-ecan-setting .jimu-symbol-picker .jimu-icon {
+  position: relative;
+  top: 12px; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,784 @@
+.widget-eLocate-ecan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 265px;
+  min-height: 279px;
+  /*used for the controller List*/
+  /*Fixes for DartTheme list colors*/
+  /*Handle themes style color*/
+  /*Fixes for DartTheme list colors*/ }
+  .widget-eLocate-ecan .button-clear {
+    float: right;
+    margin-right: 10px;
+    padding-bottom: 8px; }
+  .widget-eLocate-ecan .unitDD {
+    width: 100%;
+    height: 32px;
+    margin-top: 12px;
+    position: relative; }
+  .widget-eLocate-ecan .unitDDLbl, .widget-eLocate-ecan .mapsheetDDLbl {
+    width: 90px;
+    line-height: 32px;
+    float: left;
+    text-align: right;
+    padding-right: 8px; }
+  .widget-eLocate-ecan .unitSelect {
+    width: 200px;
+    position: absolute;
+    left: 90px;
+    top: 0; }
+  .widget-eLocate-ecan .mapsheetSelect {
+    width: 200px;
+    position: absolute;
+    left: 90px; }
+  .widget-eLocate-ecan .unitSelect .dijitSelectLabel, .widget-eLocate-ecan .mapsheetSelect .dijitSelectLabel {
+    padding: 1px 0px;
+    width: 161px;
+    overflow: hidden;
+    text-align: left; }
+  .widget-eLocate-ecan .locate-btn {
+    cursor: pointer;
+    min-width: 70px;
+    display: inline-block;
+    padding: 12px;
+    font-size: 15px;
+    text-align: center;
+    background: none repeat scroll 0% 0% #528CC9;
+    vertical-align: middle;
+    color: #FFF;
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .widget-eLocate-ecan .errorMessage {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 12px;
+    color: #FF0000;
+    clear: both; }
+  .widget-eLocate-ecan .btn-coordLocate,
+  .widget-eLocate-ecan .btn-addressLocate {
+    float: right; }
+  .widget-eLocate-ecan .revGeocodeDiv {
+    width: 100%;
+    text-align: center; }
+  .widget-eLocate-ecan .revGeocodeBtn {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 7px;
+    background-position: center center;
+    background-image: url("images/i_house.png");
+    background-color: #596679;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid gray; }
+  .widget-eLocate-ecan .revGeocodeBtn:hover {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 7px;
+    background-position: center center;
+    background-image: url("images/i_house.png");
+    background-color: #8b94a1;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid #596679; }
+  .widget-eLocate-ecan .revGeocodeBtn.selected {
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 7px;
+    background-position: center center;
+    background-image: url("images/i_house.png");
+    background-color: #8b94a1;
+    display: inline-block;
+    border-radius: 4px;
+    border: 2px solid #596679; }
+  .widget-eLocate-ecan .jimu-widget-frame > .widget-eLocate > .jimu-tab > .control {
+    margin: -14px -14px 0 -14px; }
+  .widget-eLocate-ecan .jimu-widget-frame > .widget-eLocate > .jimu-tab > .jimu-viewstack,
+  .widget-eLocate-ecan .jimu-container > .widget-eLocate > .jimu-tab > .jimu-viewstack {
+    position: absolute !important;
+    top: 45px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: auto;
+    margin-bottom: -14px; }
+  .widget-eLocate-ecan .eLocate-tab-node {
+    position: absolute !important;
+    width: 100% !important;
+    height: auto !important;
+    top: 0 !important;
+    bottom: 0 !important; }
+  .widget-eLocate-ecan .eLocate-tab-node-hidden {
+    position: absolute !important;
+    width: 100% !important;
+    height: auto !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    display: none; }
+  .widget-eLocate-ecan .result-div {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-bottom: 5px; }
+  .widget-eLocate-ecan .eLocate-list {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    overflow-x: auto;
+    overflow-y: auto; }
+  .widget-eLocate-ecan .eLocate-list-container {
+    min-width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    float: left;
+    position: relative; }
+  .widget-eLocate-ecan .eLocate-list-item {
+    line-height: 30px;
+    font-size: 12px;
+    white-space: pre;
+    position: relative; }
+  .widget-eLocate-ecan .eLocate-list-item .label {
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    margin-right: 22px;
+    cursor: default; }
+  .widget-eLocate-ecan .eLocate-list-item .labellink {
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    outline: none; }
+  .widget-eLocate-ecan .eLocate-list-item .iconDiv {
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    left: 0; }
+  .widget-eLocate-ecan .eLocate-list-item .linksdiv {
+    text-align: center;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px; }
+  .widget-eLocate-ecan .eLocate-list-item .linkIcon {
+    display: inline-block; }
+  .widget-eLocate-ecan .eLocate-list-item .iconDiv:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */ }
+  .widget-eLocate-ecan .eLocate-list-item .iconDiv svg {
+    display: inline-block;
+    vertical-align: middle; }
+  .widget-eLocate-ecan .eLocate-list-item.alt {
+    background-color: #ebebeb; }
+  .widget-eLocate-ecan .eLocate-list-item.selected {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .eLocate-list-item.selected.alt {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .eLocate-list-item:hover {
+    background-color: #dcdcdc; }
+  .widget-eLocate-ecan .eLocate-list-item.alt:hover {
+    background-color: #dcdcdc; }
+  .widget-eLocate-ecan .eLocate-list-item.selected:hover {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .eLocate-list-item.selected.alt:hover {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .eLocate-list-item .removediv:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */ }
+  .widget-eLocate-ecan .eLocate-list-item .removediv svg {
+    display: inline-block;
+    vertical-align: middle; }
+  .widget-eLocate-ecan .eLocate-list-item .removediv {
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    width: 22px;
+    right: 0; }
+  .widget-eLocate-ecan .eLocate-list-item .removedivImg {
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url("images/i_remove_info.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer; }
+  .widget-eLocate-ecan .DartTheme {
+    width: 98.5%; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.alt {
+    background-color: #646464; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected {
+    background-color: #959595; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected.alt {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.alt:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected.alt:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .locate-btn,
+  .widget-eLocate-ecan .locate-btn.btn-coordLocate,
+  .widget-eLocate-ecan .locate-btn.btn-addressLocate {
+    background-color: black;
+    background-color: black; }
+  .widget-eLocate-ecan .locate-btn:hover,
+  .widget-eLocate-ecan .locate-btn.btn-coordLocate:hover,
+  .widget-eLocate-ecan .locate-btn.btn-addressLocate:hover {
+    background-color: black;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 0, 0, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.default .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .JewelryBoxTheme.default .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .FoldableTheme jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .FoldableTheme .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme .esriPopup .titlePane,
+  .widget-eLocate-ecan .JewelryBoxTheme.default .esriPopup .titlePane {
+    background-color: #596679;
+    background-color: #596679; }
+  .widget-eLocate-ecan .JewelryBoxTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.default .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .FoldableTheme .jimu-draw-box .draw-item:hover {
+    background-color: #596679;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(89, 102, 121, 0.7); }
+  .widget-eLocate-ecan .TabTheme .locate-btn,
+  .widget-eLocate-ecan .TabTheme .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme .esriPopup .titlePane {
+    background-color: black;
+    background-color: black; }
+  .widget-eLocate-ecan .TabTheme .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme .jimu-draw-box .draw-item:hover {
+    background-color: black;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 0, 0, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.default .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.default .esriPopup .titlePane {
+    background-color: #646464;
+    background-color: #646464; }
+  .widget-eLocate-ecan .BoxTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.default .jimu-draw-box .draw-item:hover {
+    background-color: #646464;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(100, 100, 100, 0.7); }
+  .widget-eLocate-ecan .BillboardTheme.blue .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.default .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.green .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.orange .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.pink .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.purple .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.red .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.turquoise .locate-btn,
+  .widget-eLocate-ecan .BillboardTheme.blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.orange .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.pink .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.purple .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.red .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BillboardTheme.turquoise .jimu-draw-box .draw-item.jimu-state-active {
+    background-color: #d9dde0;
+    color: #86909C; }
+  .widget-eLocate-ecan .BillboardTheme.blue .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.green .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.orange .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.pink .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.purple .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.red .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.turquoise .locate-btn:hover,
+  .widget-eLocate-ecan .BillboardTheme.blue .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.default .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.green .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.orange .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.pink .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.purple .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.red .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .BillboardTheme.turquoise .jimu-draw-box .draw-item:hover {
+    background-color: black;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff; }
+  .widget-eLocate-ecan .BillboardTheme.blue .esriPopup .titlePane,
+  .widget-eLocate-ecan .DartTheme.blue .esriPopup .titlePane {
+    background-color: #2f70e4; }
+  .widget-eLocate-ecan .BillboardTheme.default .esriPopup .titlePane {
+    background-color: #2e3641; }
+  .widget-eLocate-ecan .DartTheme.default .esriPopup .titlePane {
+    background-color: #646464; }
+  .widget-eLocate-ecan .BillboardTheme.green .esriPopup .titlePane {
+    background-color: #6db8ac; }
+  .widget-eLocate-ecan .DartTheme.green .esriPopup .titlePane {
+    background-color: #80ab00; }
+  .widget-eLocate-ecan .BillboardTheme.orange .esriPopup .titlePane {
+    background-color: #edbd35; }
+  .widget-eLocate-ecan .DartTheme.orange .esriPopup .titlePane {
+    background-color: #ff9b00; }
+  .widget-eLocate-ecan .BillboardTheme.pink .esriPopup .titlePane {
+    background-color: #fe6960; }
+  .widget-eLocate-ecan .DartTheme.pink .esriPopup .titlePane {
+    background-color: #ed008c; }
+  .widget-eLocate-ecan .BillboardTheme.purple .esriPopup .titlePane {
+    background-color: #856d9c; }
+  .widget-eLocate-ecan .DartTheme.purple .esriPopup .titlePane {
+    background-color: #886197; }
+  .widget-eLocate-ecan .BillboardTheme.red .esriPopup .titlePane {
+    background-color: #e83428; }
+  .widget-eLocate-ecan .DartTheme.red .esriPopup .titlePane {
+    background-color: #cf0000; }
+  .widget-eLocate-ecan .BillboardTheme.turquoise .esriPopup .titlePane {
+    background-color: #2d95a0; }
+  .widget-eLocate-ecan .DartTheme.turquoise .esriPopup .titlePane {
+    background-color: #2faacd; }
+  .widget-eLocate-ecan .FoldableTheme.default .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.default .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .FoldableTheme.default .esriPopup .titlePane {
+    background-color: #596679;
+    background-color: #596679; }
+  .widget-eLocate-ecan .FoldableTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.default .jimu-draw-box .draw-item:hover {
+    background-color: #596679;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(89, 102, 121, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.black .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.black .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.default .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.black .locate-btn,
+  .widget-eLocate-ecan .TabTheme.default .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.black .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.black .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.black .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.black .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .FoldableTheme.black .esriPopup .titlePane,
+  .widget-eLocate-ecan .JewelryBoxTheme.black .esriPopup .titlePane,
+  .widget-eLocate-ecan .TabTheme.default .esriPopup .titlePane,
+  .widget-eLocate-ecan .PlateauTheme.black .esriPopup .titlePane {
+    background-color: black;
+    background-color: black; }
+  .widget-eLocate-ecan .FoldableTheme.black .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.black .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.black .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .TabTheme.default .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.black .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .PlateauTheme.black .jimu-draw-box .draw-item:hover {
+    background-color: black;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 0, 0, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.default .esriPopup .titlePane {
+    background-color: #464646;
+    background-color: #464646; }
+  .widget-eLocate-ecan .PlateauTheme.default .jimu-draw-box .draw-item:hover {
+    background-color: #464646;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(70, 70, 70, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.medium-grey .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.medium-grey .esriPopup .titlePane {
+    background-color: #6e6e6e;
+    background-color: #6e6e6e; }
+  .widget-eLocate-ecan .PlateauTheme.medium-grey .jimu-draw-box .draw-item:hover {
+    background-color: #6e6e6e;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(110, 110, 110, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.dark-blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.dark-blue .esriPopup .titlePane {
+    background-color: #004575;
+    background-color: #004575; }
+  .widget-eLocate-ecan .PlateauTheme.dark-blue .jimu-draw-box .draw-item:hover {
+    background-color: #004575;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 69, 117, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.esri-blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.esri-blue .esriPopup .titlePane {
+    background-color: #007ac2;
+    background-color: #007ac2; }
+  .widget-eLocate-ecan .PlateauTheme.esri-blue .jimu-draw-box .draw-item:hover {
+    background-color: #007ac2;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 122, 194, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.esri-green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.esri-green .esriPopup .titlePane {
+    background-color: #35ac46;
+    background-color: #35ac46; }
+  .widget-eLocate-ecan .PlateauTheme.esri-green .jimu-draw-box .draw-item:hover {
+    background-color: #35ac46;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(53, 172, 70, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.dark-green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.dark-green .esriPopup .titlePane {
+    background-color: #2a7433;
+    background-color: #2a7433; }
+  .widget-eLocate-ecan .PlateauTheme.dark-green .jimu-draw-box .draw-item:hover {
+    background-color: #2a7433;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(42, 116, 51, 0.7); }
+  .widget-eLocate-ecan .PlateauTheme.orange .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .PlateauTheme.orange .esriPopup .titlePane {
+    background-color: #da4d1e;
+    background-color: #da4d1e; }
+  .widget-eLocate-ecan .PlateauTheme.orange .jimu-draw-box .draw-item:hover {
+    background-color: #da4d1e;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(218, 77, 30, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.cyan .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.cyan .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.cyan .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.cyan .esriPopup .titlePane {
+    background-color: #267030;
+    background-color: #267030; }
+  .widget-eLocate-ecan .FoldableTheme.cyan .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.cyan .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.cyan .jimu-draw-box .draw-item:hover {
+    background-color: rga(38, 112, 48);
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(38, 112, 48, 0.7); }
+  .widget-eLocate-ecan .TabTheme.cyan .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.cyan .locate-btn,
+  .widget-eLocate-ecan .TabTheme.cyan .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.cyan .esriPopup .titlePane {
+    background-color: #2aaa8a;
+    background-color: #2aaa8a; }
+  .widget-eLocate-ecan .TabTheme.cyan .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.cyan .jimu-draw-box .draw-item:hover {
+    background-color: rga(42, 170, 138);
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(42, 170, 138, 0.7); }
+  .widget-eLocate-ecan .TabTheme.green .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.green .locate-btn,
+  .widget-eLocate-ecan .TabTheme.green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.green .esriPopup .titlePane {
+    background-color: #05ab08;
+    background-color: #05ab08; }
+  .widget-eLocate-ecan .TabTheme.green .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.green .jimu-draw-box .draw-item:hover {
+    background-color: #05ab08;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(5, 171, 8, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.green .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.green .esriPopup .titlePane {
+    background-color: #80ab00;
+    background-color: #80ab00; }
+  .widget-eLocate-ecan .BoxTheme.green .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.green .jimu-draw-box .draw-item:hover {
+    background-color: #80ab00;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(128, 171, 0, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.orange .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.orange .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.orange .esriPopup .titlePane {
+    background-color: #ff9b00;
+    background-color: #ff9b00; }
+  .widget-eLocate-ecan .BoxTheme.orange .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.orange .jimu-draw-box .draw-item:hover {
+    background-color: #ff9b00;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(255, 155, 0, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.green .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.green .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.green .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.green .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.green .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.green .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.green .esriPopup .titlePane {
+    background-color: #2aaa8a;
+    background-color: #2aaa8a; }
+  .widget-eLocate-ecan .FoldableTheme.green .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.green .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.green .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.green .jimu-draw-box .draw-item:hover {
+    background-color: #2aaa8a;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(42, 170, 138, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.turquoise .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.turquoise .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.turquoise .esriPopup .titlePane {
+    background-color: #2faacd;
+    background-color: #2faacd; }
+  .widget-eLocate-ecan .BoxTheme.turquoise .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.turquoise .jimu-draw-box .draw-item:hover {
+    background-color: #2faacd;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(47, 170, 205, 0.7); }
+  .widget-eLocate-ecan .TabTheme.simpleblue .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.simpleblue .locate-btn,
+  .widget-eLocate-ecan .TabTheme.simpleblue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.simpleblue .esriPopup .titlePane {
+    background-color: #3498db;
+    background-color: #3498db; }
+  .widget-eLocate-ecan .TabTheme.simpleblue .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.simpleblue .jimu-draw-box .draw-item:hover {
+    background-color: #3498db;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(52, 152, 219, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.red .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.red .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.red .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.red .locate-btn,
+  .widget-eLocate-ecan .TabTheme.red .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.red .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.red .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.red .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.red .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.red .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.red .esriPopup .titlePane,
+  .widget-eLocate-ecan .TabTheme.red .esriPopup .titlePane {
+    background-color: #c92e49;
+    background-color: #c92e49; }
+  .widget-eLocate-ecan .FoldableTheme.red .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.red .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.red .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.red .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .TabTheme.red .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.red .jimu-draw-box .draw-item:hover {
+    background-color: #c92e49;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(201, 46, 73, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.red .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.red .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.red .esriPopup .titlePane {
+    background-color: #cf0000;
+    background-color: #cf0000; }
+  .widget-eLocate-ecan .BoxTheme.red .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.red .jimu-draw-box .draw-item:hover {
+    background-color: #cf0000;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(207, 0, 0, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.pink .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.pink .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.pink .esriPopup .titlePane {
+    background-color: #ed008c;
+    background-color: #ed008c; }
+  .widget-eLocate-ecan .BoxTheme.pink .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.pink .jimu-draw-box .draw-item:hover {
+    background-color: #ed008c;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(237, 0, 140, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.yellow .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.yellow .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.yellow .locate-btn,
+  .widget-eLocate-ecan .TabTheme.yellow .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.yellow .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.yellow .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.yellow .esriPopup .titlePane,
+  .widget-eLocate-ecan .TabTheme.yellow .esriPopup .titlePane {
+    background-color: #d07d0e;
+    background-color: #d07d0e; }
+  .widget-eLocate-ecan .FoldableTheme.yellow .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.yellow .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.yellow .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .TabTheme.yellow .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.yellow .jimu-draw-box .draw-item:hover {
+    background-color: #d07d0e;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(208, 125, 14, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.blue .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.blue .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.blue .locate-btn,
+  .widget-eLocate-ecan .TabTheme.blue .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.blue .esriPopup .titlePane,
+  .widget-eLocate-ecan .TabTheme.blue .esriPopup .titlePane {
+    background-color: #005fa2;
+    background-color: #005fa2; }
+  .widget-eLocate-ecan .FoldableTheme.blue .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.blue .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.blue .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .TabTheme.blue .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.blue .jimu-draw-box .draw-item:hover {
+    background-color: #005fa2;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(0, 95, 162, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.blue .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.blue .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.blue .esriPopup .titlePane {
+    background-color: #2d70e4;
+    background-color: #2d70e4; }
+  .widget-eLocate-ecan .BoxTheme.blue .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.blue .jimu-draw-box .draw-item:hover {
+    background-color: #2d70e4;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(45, 112, 228, 0.7); }
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.purple .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .TabTheme.purple .jimu-on-screen-widget-panel > .jimu-panel-title,
+  .widget-eLocate-ecan .FoldableTheme.purple .locate-btn,
+  .widget-eLocate-ecan .TabTheme.purple .locate-btn,
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .locate-btn,
+  .widget-eLocate-ecan .FoldableTheme.purple .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .TabTheme.purple .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .esriPopup .titlePane,
+  .widget-eLocate-ecan .FoldableTheme.purple .esriPopup .titlePane,
+  .widget-eLocate-ecan .TabTheme.purple .esriPopup .titlePane {
+    background-color: #ab6dae;
+    background-color: #ab6dae; }
+  .widget-eLocate-ecan .FoldableTheme.purple .locate-btn:hover,
+  .widget-eLocate-ecan .TabTheme.purple .locate-btn:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .locate-btn:hover,
+  .widget-eLocate-ecan .FoldableTheme.purple .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .TabTheme.purple .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .JewelryBoxTheme.purple .jimu-draw-box .draw-item:hover {
+    background-color: #ab6dae;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(171, 109, 174, 0.7); }
+  .widget-eLocate-ecan .BoxTheme.purple .locate-btn,
+  .widget-eLocate-ecan .BoxTheme.purple .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .BoxTheme.purple .esriPopup .titlePane {
+    background-color: #886197;
+    background-color: #886197; }
+  .widget-eLocate-ecan .BoxTheme.purple .locate-btn:hover,
+  .widget-eLocate-ecan .BoxTheme.purple .jimu-draw-box .draw-item:hover {
+    background-color: #886197;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(136, 97, 151, 0.7); }
+  .widget-eLocate-ecan .LaunchpadTheme.style2 .locate-btn,
+  .widget-eLocate-ecan .LaunchpadTheme.default .locate-btn,
+  .widget-eLocate-ecan .LaunchpadTheme.style2 .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .LaunchpadTheme.default .jimu-draw-box .draw-item.jimu-state-active,
+  .widget-eLocate-ecan .LaunchpadTheme.style2 .esriPopup .titlePane,
+  .widget-eLocate-ecan .LaunchpadTheme.default .esriPopup .titlePane {
+    background-color: #333333;
+    background-color: #333333; }
+  .widget-eLocate-ecan .LaunchpadTheme.style2 .locate-btn:hover,
+  .widget-eLocate-ecan .LaunchpadTheme.default .locate-btn:hover,
+  .widget-eLocate-ecan .LaunchpadTheme.style2 .jimu-draw-box .draw-item:hover,
+  .widget-eLocate-ecan .LaunchpadTheme.default .jimu-draw-box .draw-item:hover {
+    background-color: #333333;
+    -ms-filter: "Alpha(opacity=70)";
+    background-color: rgba(51, 51, 51, 0.7); }
+  .widget-eLocate-ecan .jimu-draw-box .point-icon.jimu-state-active {
+    background-image: url(images/draw_point.png); }
+  .widget-eLocate-ecan .jimu-draw-box .line-icon.jimu-state-active {
+    background-image: url(images/draw_line.png); }
+  .widget-eLocate-ecan .jimu-draw-box .polyline-icon.jimu-state-active {
+    background-image: url(images/draw_polyline.png); }
+  .widget-eLocate-ecan .jimu-draw-box .freehand-polyline-icon.jimu-state-active {
+    background-image: url(images/draw_freehand_polyline.png); }
+  .widget-eLocate-ecan .jimu-draw-box .triangle-icon.jimu-state-active {
+    background-image: url(images/draw_triangle.png); }
+  .widget-eLocate-ecan .jimu-draw-box .extent-icon.jimu-state-active {
+    background-image: url(images/draw_extent.png); }
+  .widget-eLocate-ecan .jimu-draw-box .circle-icon.jimu-state-active {
+    background-image: url(images/draw_circle.png); }
+  .widget-eLocate-ecan .jimu-draw-box .ellipse-icon.jimu-state-active {
+    background-image: url(images/draw_ellipse.png); }
+  .widget-eLocate-ecan .jimu-draw-box .polygon-icon.jimu-state-active {
+    background-image: url(images/draw_polygon.png); }
+  .widget-eLocate-ecan .jimu-draw-box .freehand-polygon-icon.jimu-state-active {
+    background-image: url(images/draw_freehand_polygon.png); }
+  .widget-eLocate-ecan .LaunchpadTheme .jimu-draw-box .draw-item:hover {
+    color: #fff; }
+  .widget-eLocate-ecan div.dijitArrowButton {
+    float: right;
+    height: 100%; }
+  .widget-eLocate-ecan .dijitValidationTextBoxError input.dijitValidationInner,
+  .widget-eLocate-ecan .dijitSelect input,
+  .widget-eLocate-ecan .dijitTextBox input.dijitArrowButtonInner {
+    text-indent: -2em !important;
+    direction: ltr !important;
+    text-align: left !important;
+    height: 100% !important; }
+  .widget-eLocate-ecan .jimu-draw-box .draw-item:hover {
+    background-color: unset; }
+  .widget-eLocate-ecan .jimu-draw-box .draw-item.selected {
+    background-color: #C0C0C0; }
+  .widget-eLocate-ecan .jimu-checkbox .label {
+    font-size: 12px;
+    margin: auto 5px;
+    cursor: default; }
+  .widget-eLocate-ecan .DartTheme {
+    width: 98%; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.alt {
+    background-color: #646464; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected {
+    background-color: #959595; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected.alt {
+    background-color: #d9dde0; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.alt:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .DartTheme .eLocate-list-item.selected.alt:hover {
+    background-color: #555555; }
+  .widget-eLocate-ecan .xCoordLblCls,
+  .widget-eLocate-ecan .yCoordLblCls,
+  .widget-eLocate-ecan .CoordHintLblCls,
+  .widget-eLocate-ecan .unitDDLbl {
+    width: 90px;
+    line-height: 32px;
+    float: left;
+    text-align: right;
+    padding-right: 8px; }
+  .widget-eLocate-ecan .DartTheme .xCoordLblCls,
+  .widget-eLocate-ecan .DartTheme .yCoordLblCls,
+  .widget-eLocate-ecan .DartTheme .CoordHintLblCls,
+  .widget-eLocate-ecan .DartTheme .unitDDLbl {
+    width: 75px;
+    line-height: 32px;
+    float: left;
+    text-align: right;
+    padding-right: 8px; }
+  .widget-eLocate-ecan .DartTheme .xCoordTextBoxCls,
+  .widget-eLocate-ecan .DartTheme .yCoordTextBoxCls,
+  .widget-eLocate-ecan .DartTheme .CoordHintTextCls,
+  .widget-eLocate-ecan .DartTheme .unitSelect {
+    width: 190px;
+    line-height: 32px; }
+  .widget-eLocate-ecan .DartTheme .unitSelect {
+    left: 75px; }
+  .widget-eLocate-ecan .xCoordTextBoxCls,
+  .widget-eLocate-ecan .yCoordTextBoxCls,
+  .widget-eLocate-ecan .CoordHintTextCls,
+  .widget-eLocate-ecan .unitSelect {
+    width: 200px;
+    line-height: 32px; }
+  .widget-eLocate-ecan .tab.jimu-vcenter-text {
+    overflow: hidden; }
+
+/*# sourceMappingURL=style.css.map */

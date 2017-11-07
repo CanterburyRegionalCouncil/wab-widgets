@@ -2615,11 +2615,11 @@ function(
                     labelText = pointPattern.replace("{{x}}", x).replace("{{y}}", y);
                 }
                 else {
-                    var localeLength = jimuUtils.localizeNumber(length.toFixed(1));
+                    var localeLength = jimuUtils.localizeNumber((length < 0 ? length * -1 : length).toFixed(1));
                     var localeLengthUnit = this._getDistanceUnitInfo(lengthUnit).abbr;
                     if (area) {
                         var localeAreaUnit = this._getAreaUnitInfo(areaUnit).abbr;
-                        var localeArea = jimuUtils.localizeNumber(area.toFixed(1));
+                        var localeArea = jimuUtils.localizeNumber((area < 0 ? area * -1 : area).toFixed(1));
                         labelText = polygonPattern
                             .replace("{{length}}", localeLength).replace("{{lengthUnit}}", localeLengthUnit)
                             .replace("{{area}}", localeArea).replace("{{areaUnit}}", localeAreaUnit);
@@ -2634,7 +2634,7 @@ function(
             }
         },
 
-        _initialiseMapTip : function (evt) {
+        _initialiseMapTip : function (evt) { 
             this.drawing = true;
             if (!this.mouseTip) {
                 this.mouseTip = new Graphic(evt.mapPoint, new TextSymbol());
@@ -3243,13 +3243,13 @@ function(
                 var pointUnit = this.pointUnitSelect.value;
             }
             else{
-                var localeLength = jimuUtils.localizeNumber(length.toFixed(1));
+                var localeLength = jimuUtils.localizeNumber((length < 0 ? length * -1 : length).toFixed(1));
                 var lengthUnit = this.distanceUnitSelect.value;
                 var localeLengthUnit = this._getDistanceUnitInfo(lengthUnit).label;
                 if (area) {
                     var areaUnit = this.areaUnitSelect.value;
                     var localeAreaUnit = this._getAreaUnitInfo(areaUnit).label;
-                    var localeArea = jimuUtils.localizeNumber(area.toFixed(1));
+                    var localeArea = jimuUtils.localizeNumber((area < 0 ? area * -1 : area).toFixed(1));
                     var text = polygonPattern
                         .replace("{{length}}", localeLength).replace("{{lengthUnit}}", localeLengthUnit)
                         .replace("{{area}}", localeArea).replace("{{areaUnit}}", localeAreaUnit);
@@ -3473,14 +3473,14 @@ function(
             else if (geometry.type == 'polyline') {
                 this._getLengthAndArea(geometry, false).then(lang.hitch(this, function (result) {
                     var localeLengthUnit = this._getDistanceUnitInfo(lengthUnit).abbr;
-                    measure = polylinePattern.replace("{{length}}", jimuUtils.localizeNumber(result.length.toFixed(1))).replace("{{lengthUnit}}", localeLengthUnit);
+                    measure = polylinePattern.replace("{{length}}", jimuUtils.localizeNumber((result.length < 0 ? result.length * -1 : result.length).toFixed(1))).replace("{{lengthUnit}}", localeLengthUnit);
                 }));
             }
             else if (geometry.type == 'polygon') {
                 this._getLengthAndArea(geometry, true).then(lang.hitch(this, function (result) {
                     var localeLengthUnit = this._getDistanceUnitInfo(lengthUnit).abbr;
                     var localeAreaUnit = this._getAreaUnitInfo(areaUnit).abbr;
-                    measure = polygonPattern.replace("{{length}}", jimuUtils.localizeNumber(result.length.toFixed(1))).replace("{{lengthUnit}}", localeLengthUnit).replace("{{area}}", jimuUtils.localizeNumber(result.area.toFixed(1))).replace("{{areaUnit}}", localeAreaUnit);
+                    measure = polygonPattern.replace("{{length}}", jimuUtils.localizeNumber((result.length < 0 ? result.length * -1 : result.length).toFixed(1))).replace("{{lengthUnit}}", localeLengthUnit).replace("{{area}}", jimuUtils.localizeNumber((result.area < 0 ? result.area * -1 : result.area).toFixed(1))).replace("{{areaUnit}}", localeAreaUnit);
                 }));
             }
 
