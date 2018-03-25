@@ -191,7 +191,8 @@ define({
 		          add: "Add",
 		          delete: "Delete",
 		          details: "Details",
-		          editDetails: "Edit Details"
+		          editDetails: "Edit Details",
+		          share: "Share"
 		        },
         		typeByOwnerPattern: "{type} by {owner}",	
 		        dateFormat: "MMMM d, yyyy hh:mm a",

@@ -41,9 +41,11 @@ define(["dojo/_base/declare",
       postCreate: function() {
         this.inherited(arguments);
 
-        var self = this,
-        btn = this.deleteButton;
+        var self = this;
         if (this.canDelete) {
+          btn = this.deleteButton;
+          domClass.remove(btn, "disabled");         
+          btn = this.shareButton;
           domClass.remove(btn, "disabled");         
         }
       },
@@ -57,25 +59,19 @@ define(["dojo/_base/declare",
       },
 
       addClicked: function() {
-        var self = this,
-        btn = this.addButton;
         this.resultsPane.addPortalDrawingItem(this.item.id);
       },
 
       detailsClicked: function() {
-        //var item = this.item;
-        //var baseUrl = util.checkMixedContent(item.portalUrl);
-        //var url = baseUrl + "/home/item.html?id=" + encodeURIComponent(item.id);
-        //window.open(url);
         this.resultsPane.showPortalDrawingDetails(this.item.id);
       },
 
       deleteClicked: function() {
-          if (this.canDelete) {        
-            this.resultsPane.deletePortalDrawing(this.item.id);
-          } else {
-            return;
-        }
+        this.resultsPane.deletePortalDrawing(this.item.id);
+      },
+
+      shareClicked: function() {
+        this.resultsPane.sharePortalDrawing(this.item.id);
       },
 
       formatDate: function(date) {
@@ -100,6 +96,8 @@ define(["dojo/_base/declare",
         if (this.canRemove) {
           util.setNodeText(this.addButton, i18n.search.item.actions.remove);
         }
+
+
       },
 
       _renderThumbnail: function() {

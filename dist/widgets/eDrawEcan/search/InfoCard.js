@@ -29,9 +29,11 @@ define(["dojo/_base/declare", "dojo/_base/array", "dojo/date/locale", "dojo/dom-
     postCreate: function postCreate() {
       this.inherited(arguments);
 
-      var self = this,
-          btn = this.deleteButton;
+      var self = this;
       if (this.canDelete) {
+        btn = this.deleteButton;
+        domClass.remove(btn, "disabled");
+        btn = this.shareButton;
         domClass.remove(btn, "disabled");
       }
     },
@@ -45,25 +47,19 @@ define(["dojo/_base/declare", "dojo/_base/array", "dojo/date/locale", "dojo/dom-
     },
 
     addClicked: function addClicked() {
-      var self = this,
-          btn = this.addButton;
       this.resultsPane.addPortalDrawingItem(this.item.id);
     },
 
     detailsClicked: function detailsClicked() {
-      //var item = this.item;
-      //var baseUrl = util.checkMixedContent(item.portalUrl);
-      //var url = baseUrl + "/home/item.html?id=" + encodeURIComponent(item.id);
-      //window.open(url);
       this.resultsPane.showPortalDrawingDetails(this.item.id);
     },
 
     deleteClicked: function deleteClicked() {
-      if (this.canDelete) {
-        this.resultsPane.deletePortalDrawing(this.item.id);
-      } else {
-        return;
-      }
+      this.resultsPane.deletePortalDrawing(this.item.id);
+    },
+
+    shareClicked: function shareClicked() {
+      this.resultsPane.sharePortalDrawing(this.item.id);
     },
 
     formatDate: function formatDate(date) {

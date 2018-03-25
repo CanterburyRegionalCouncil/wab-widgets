@@ -647,6 +647,11 @@
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
+
+            a.disabled {
+                cursor: default;
+                display: none;
+            }
         }
     }
 

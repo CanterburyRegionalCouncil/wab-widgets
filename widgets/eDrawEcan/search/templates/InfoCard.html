@@ -4,8 +4,15 @@
     <h3 class="title" data-dojo-attach-point="titleNode"></h3>
     <div class="info" data-dojo-attach-point="typeByOwnerNode"></div>
     <div class="info" data-dojo-attach-point="dateNode"></div>
+    <div class="info" data-dojo-attach-point="shareNode"></div>
     <div class="action-bar">
-      <!--<span class="message" data-dojo-attach-point="messageNode"></span>-->
+      <a href="javascript:void(0)"
+        data-dojo-attach-point="shareButton"
+        data-dojo-attach-event="onClick: shareClicked"
+        title="${i18n.search.item.actions.share}"
+        class="disabled"
+        >${i18n.search.item.actions.share}
+      </a>
       <a href="javascript:void(0)"
         data-dojo-attach-point="addButton"
         data-dojo-attach-event="onClick: addClicked"
