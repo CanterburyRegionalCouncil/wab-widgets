@@ -1911,6 +1911,26 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
             }
         },
 
+        _getDrawingShares: function _getDrawingShares(portal, itemid) {
+            var portalUrl = portalUrlUtils.getStandardPortalUrl(this.appConfig.portalUrl);
+            var shareDetailsUrl = portalUrlUtils.getItemGroupsUrl(portalUrl, itemid);
+
+            var args = {
+                url: shareDetailsUrl,
+                handleAs: 'json',
+                content: {
+                    f: 'json'
+                },
+                callbackParamName: 'callback'
+            };
+
+            if (portal.isValidCredential) {
+                args.content.token = portal.credential.token;
+            }
+
+            return esriRequest(args);
+        },
+
         _addPortalDrawingItem: function _addPortalDrawingItem(drawingName, layers, snippet, description) {
             var featureCollection = {
                 layers: layers

@@ -2120,6 +2120,26 @@ function(
             }
         },
 
+        _getDrawingShares: function (portal, itemid) {
+            var portalUrl = portalUrlUtils.getStandardPortalUrl(this.appConfig.portalUrl);                
+            var shareDetailsUrl = portalUrlUtils.getItemGroupsUrl(portalUrl,itemid);
+
+            var args = {
+                url: shareDetailsUrl,
+                handleAs: 'json',
+                content: {
+                    f: 'json'
+                },
+                callbackParamName: 'callback'
+            };
+
+            if (portal.isValidCredential) {
+                args.content.token = portal.credential.token;
+            }
+
+            return esriRequest(args);
+        },
+
         _addPortalDrawingItem : function(drawingName, layers, snippet, description) {
             var featureCollection = {
                 layers: layers
