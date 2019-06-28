@@ -67,7 +67,42 @@ define({
       confirmNo: "No",
       confirmOk: "Ok",
       gotoLLUR: "Go to LLUR Details"
-    }
+    },
+
+    explodeFeaturesPopup: {
+      ok: "OK",
+      cancel: "Cancel",
+      titleLabel: "Explode Selected Feature"
+    },  
+
+    tools: {
+      mergeFeatures: "Merge",
+      mergeToolTitle: "Merge Multiple Features",
+      mergeErrors: {
+        multipleLayersError: "Merging features can only be performed on the features from one layer.",
+        unsupportedGeometryError: "Merging is only available on line and polygon features.",
+        numberOfFeaturesError: "A minimum of two features must be selected before merge tool can be used.",
+        generalError: "The merge tool is disabled."
+      },
+      
+      explodeMultipartFeatures: "Explode",
+      explodeToolTitle: "Explode Multipart Feature",
+      explodeErrors: {
+        unsupportedGeometryError: "Exploding is only available on line and polygon features.",
+        notMultipartError: "The current feature does not have multipart geometry.",
+        generalError: "The explode tool is disbaled."
+      },
+
+      cutFeatures: "Cut",
+      cutToolTitle: "Cut Feature into Parts",
+      cutErrors: {
+        invalidCutGeometryError: "There was a problem with the shape drawn to cut the selected feature.",
+        noFeaturesCutError: "The shape drawn did not intersect the selected feature.",
+        unsupportedGeometryError: "Cut is only available on line and polygon features.",
+        generalError: "The cut tool is disabled."
+      },
+    }  
+
 
   })
   // add supported locales below:

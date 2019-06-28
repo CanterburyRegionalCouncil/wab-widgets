@@ -244,9 +244,13 @@ function (
                     this.editGeometryButton.startup();
                     this.editGeometryButtonClickHandle = this.editGeometryButton.on("click", lang.hitch(this, 
                         function (evt) {
-                            this._toggleEditTool();
+                            this._toggleGeometryTools();
+                            //this._toggleEditTool();
                         })
                     );
+
+                    this._createGeometryTools();
+
                 }
 
 
@@ -369,7 +373,7 @@ function (
 
                 //clear attached components and events
                 if (this.atttributeInspectorDelete) {
-                    this.atttributeInspectorDelete.remove();                   
+                    this.atttributeInspectorDelete.remove();
                 }
 
                 if (this.cancelButtonClickHandle) {
@@ -389,7 +393,7 @@ function (
                 }
 
                 if (this.requestButtonClickHandle) {
-                    this.requestButtonClickHandle.remove();                   
+                    this.requestButtonClickHandle.remove();
                 }
 
                 if (this.requestButton) {
@@ -397,7 +401,7 @@ function (
                 }
 
                 if (this.editGeometryButtonClickHandle) {
-                    this.editGeometryButtonClickHandle.remove();                    
+                    this.editGeometryButtonClickHandle.remove();
                 }
 
                 if (this.editGeometryButton) {
@@ -412,6 +416,94 @@ function (
 
         /*---------------------------------------------------------
           EDIT TOOLS AND FUNCTIONS */
+
+        //toggle the visibility of the geometry edit tools
+        _toggleGeometryTools: function (forceOff) {
+            if (this._geometryToolsActive || forceOff) {
+
+            }
+            else {
+
+
+                //Add explode tool
+
+
+                //Add cut tool
+
+                //Add merge tool
+
+                //Add copy tool
+
+
+            }
+
+
+        },
+
+        _createGeometryTools: function () {
+            if (this._geometryTools) {
+                domConstruct.destroy(this._geometryTools);
+            }
+
+            this._geometryTools = domConstruct.create("div", {
+              "class": "atiButtons esriCTGeometryEditor"
+            }, this.editGeometryButton.domNode, "after");
+//hidden
+            this._createCutTool();
+            //this._createMergeTool();
+            //this._createExplodeTool();
+        },
+
+        _createCutTool: function () {
+            //Cut Button - construct the button
+            if (this._featureCut) {
+                // Deactivate the click event
+                if (this._cutClick) {
+                  this._cutClick.remove();
+                  this._cutClick = null;
+                }
+                domConstruct.destroy(this._featureCut);
+            }
+
+            this._featureCut = domConstruct.create("div", {
+              "class": "esriCTCutFeatures esriCTGeometryEditor",
+              "title": this.i18n.tools.cutToolTitle
+            }, this._geometryTools, "last");
+        },
+
+        _createMergeTool: function () {
+            //Merge Button - construct the button
+            if (this._featureMerge) {
+                // Deactivate the click event
+                if (this._mergeClick) {
+                  this._mergeClick.remove();
+                  this._mergeClick = null;
+                }
+                domConstruct.destroy(this._featureMerge);
+            }
+
+            this._featureMerge = domConstruct.create("div", {
+              "class": "esriCTMergeFeatures esriCTGeometryEditor",
+              "title": this.i18n.tools.mergeToolTitle
+            }, this._geometryTools, "last");
+        },
+
+        _createExplodeTool: function () {
+            //Explode Button - construct the button
+            if (this._featureExplode) {
+                // Deactivate the click event
+                if (this._explodeClick) {
+                  this._explodeClick.remove();
+                  this._explodeClick = null;
+                }
+                domConstruct.destroy(this._featureExplode);
+            }
+
+            this._featureExplode = domConstruct.create("div", {
+              "class": "esriCTExplodeFeatures esriCTGeometryEditor",
+              "title": this.i18n.tools.explodeToolTitle
+            }, this._geometryTools, "last");
+        },
 
         //start geometry edit tool
         _toggleEditTool: function(forceOff) {
@@ -517,7 +609,355 @@ function (
 
 
         /*---------------------------------------------------------
+          CUT FUNCTIONS */
+
+        /**
+        * This function is used to show/hide the explode features button depending upon certain conditions
+        * @param {checked} : a state of the edit geometry checkbox. if checked show the icon else hide it
+        */
+        _toggleCutFeatureButtonVisibility: function (checked) {
+            //if edit checkbox is checked and geometry supports merging
+            if (!checked) {
+                this._setCutHandler(false,"");
+            } else {
+                // Check geometry is line or polygon
+                if (this.currentFeature.geometry.type === 'point') {
+                    // Disable the explode tool and show unsupported geometry error message value
+                    this._setCutHandler(false,"unsupported geometry");
+                } else {
+                    this._setCutHandler(true);
+                }
+            }
+        },
+
+        _setCutHandler: function (create, error) {
+            if (create) {
+                // Remove disable button style
+                if (domClass.contains(this._featureCut, "hidden")) {
+                  domClass.remove(this._featureCut, "hidden");
+                }
+
+                domAttr.set(this._featureCut, "title", this.nls.tools.cutToolTitle);
+
+                // Apply the click event
+                if (!this._cutClick) {
+                  this._cutClick = on(this._featureCut, "click", lang.hitch(this, this._setCutMode));
+                }
+
+
+            } else {
+                // Apply disable button style
+                if (!domClass.contains(this._featureCut, "hidden")) {
+                  domClass.add(this._featureCut, "hidden");
+                }
+
+                // Deactiviate the click event
+                if (this._cutClick) {
+                    this._cutClick.remove();
+                    this._cutClick = null;
+                }
+
+                switch (error) {
+                    case "unsupported geometry":
+                        domAttr.set(this._featureCut, "title", this.nls.tools.cutErrors.unsupportedGeometryError);
+                    break;
+
+
+                    default:
+                        domAttr.set(this._featureCut, "title", this.nls.tools.cutErrors.generalError);
+                    break;
+                }
+
+            }
+        },
+
+        _setCutMode: function (reset) {
+            if(reset === true || this._drawToolEditMode && this._drawToolEditType && this._drawToolEditType === 'CUT') {
+                // Deactivate the cut tool
+                this._drawToolEditMode = false;
+                this._drawToolEditType = null;
+                this.drawToolbar.deactivate();     
+
+                this.map.setInfoWindowOnClick(true);
+
+                // Remove active style on button
+                this._applyEditToolButtonStyle('CUT', false);
+
+            } else {
+                // Check if another edit tool is active
+                if (this._drawToolEditType !== 'CUT') {
+                // disable this tool
+                }
+
+                // Activate the draw tool to define the cut line
+                this._drawToolEditType = 'CUT';
+                this._drawToolEditMode = true;
+                this.drawToolbar.activate(Draw.POLYLINE, null);  
+
+                this.map.setInfoWindowOnClick(false);
+
+                // Remove active style on button
+                this._applyEditToolButtonStyle('CUT', true);
+            }
+        },
+
+        _cutFeatures: function (evt) {
+            // Check for line feature
+            if (this.currentFeature && evt && evt.geometry) {
+                var cutLine = evt.geometry;
+
+                // Reset the cut tool
+                this._setCutMode(true);
+
+                if (cutLine.type !== 'polyline') {
+                    Message({
+                        message: this.nls.tools.cutErrors.invalidCutGeometryError
+                    });
+
+                // stop here and reset tool
+                return;
+            }
+
+            var feature = this.currentFeature;
+            var newShapes = geometryEngine.cut(feature.geometry, cutLine);
+
+            if (newShapes.length === 0) {
+                Message({
+                    message: this.nls.tools.cutErrors.noFeaturesCutError
+                });
+
+            } else {
+                // Create new records based on the original and remove the original record
+                var newFeatures = [], newGeometry = null;
+                for(var p=0,pl = newShapes.length;p<pl;p++) {
+                    var newFeature = new Graphic(feature.toJson());
+                    newGeometry = newShapes[p];
+                    newFeature.setGeometry(newGeometry);
+                    newFeatures.push(newFeature); 
+                }
+
+                var layer = feature.getLayer();
+                layer.applyEdits(newFeatures, null, [feature],
+                  lang.hitch(this, function (adds, updates, deletes) {
+                    if (adds && updates.length > 0 && adds[0].hasOwnProperty("error")) {
+                      Message({
+                        message: adds[0].error.toString()
+                      });
+                    }
+                    if (deletes && deletes.length > 0 && deletes[0].hasOwnProperty("error")) {
+                      Message({
+                        message: deletes[0].error.toString()
+                      });
+                    }
+
+                    // Return to templates 
+                    this._showTemplate(true);
+
+                  }), lang.hitch(this, function (err) {
+                    Message({
+                      message: err.message.toString() + "\n" + err.details
+                    });
+                  }));
+
+            }
+        }
+        },  
+
+
+
+        /*---------------------------------------------------------
+          EXPLODE FUNCTIONS */
+        
+        /**
+        * This function is used to show/hide the explode features button depending upon certain conditions
+        * @param {checked} : a state of the edit geometry checkbox. if checked show the icon else hide it
+        */
+        _toggleExplodeFeatureButtonVisibility: function (checked) {
+            // //if edit checkbox is checked and geometry supports merging
+            // if (!checked) {
+            //   this._setExplodeHandler(false,"");
+            // } else {
+            //   // Check geometry is line or polygon
+            //   if (this.currentFeature.geometry.type === 'point') {
+            //     // Disable the explode tool and show unsupported geometry error message value
+            //     this._setExplodeHandler(false,"unsupported geometry");
+            //     return;
+            //   } 
+
+            //   // Check for multipart geometry
+            //   var feature = null, process = '', geometry = null, newFeatures = [];
+            //   feature = this.currentFeature;
+            //   switch (feature.geometry.type) {
+            //       case 'polyline':
+            //           if (feature.geometry.paths.length > 0)
+            //               process = 'paths';
+            //           break;
+
+            //       case 'polygon':
+            //           if (feature.geometry.rings.length > 0)
+            //               process = 'rings';
+            //           break;
+
+            //       default:
+            //           break;
+            //   }
+
+            //   if (feature.geometry[process].length === 1) {
+            //     // Disable the explode tool and show not multipart error message value
+            //     this._setExplodeHandler(false,"not multipart");          
+            //   } else {
+            //     this._setExplodeHandler(true);
+            //   }
+            // }
+        },
+
+        _setExplodeHandler: function (create, error) {
+        // if (create) {
+        //     // Remove disable button style
+        //     if (domClass.contains(this._featureExplode, "hidden")) {
+        //       domClass.remove(this._featureExplode, "hidden");
+        //     }
+
+        //     domAttr.set(this._featureExplode, "title", this.nls.tools.explodeToolTitle);
+
+        //     // Apply the click event
+        //     if (!this._explodeClick) {
+        //       this._explodeClick = on(this._featureExplode, "click", lang.hitch(this, this._startExplode));
+        //     }
+
+
+        // } else {
+        //     // Apply disable button style
+        //     if (!domClass.contains(this._featureExplode, "hidden")) {
+        //       domClass.add(this._featureExplode, "hidden");
+        //     }
+
+        //     // Deactiviate the click event
+        //     if (this._explodeClick) {
+        //       this._explodeClick.remove();
+        //       this._explodeClick = null;
+        //     }
+
+        //     switch (error) {
+        //       case "unsupported geometry":
+        //         domAttr.set(this._featureExplode, "title", this.nls.tools.explodeErrors.unsupportedGeometryError);
+        //         break;
+
+        //       case "not multipart":
+        //         domAttr.set(this._featureExplode, "title", this.nls.tools.explodeErrors.notMultipartError);
+        //         break;
+
+        //       default:
+        //         domAttr.set(this._featureExplode, "title", this.nls.tools.explodeErrors.generalError);
+        //         break;
+        //   }
+
+        // }
+        },
+
+        _startExplode: function () {
+        // var explodePopup, param;
+        // param = {
+        //     map: this.map,
+        //     nls: this.nls,
+        //     config: this.config,
+        //     features: this.updateFeatures,
+        //     currentFeature: this.currentFeature
+        // };
+
+        // explodePopup = new ExplodeFeatures(param);
+        // explodePopup.startup();
+
+        // explodePopup.onOkClick = lang.hitch(this, function() {
+        //   this._explodeFeatures();
+        //   explodePopup.popup.close();
+        // });
+        },
+
+        _explodeFeatures: function () {
+          // // Check for multipart geometry
+          // var feature = null, process = '', geometry = null, newFeatures = [];
+          // feature = this.currentFeature;
+          // switch (feature.geometry.type) {
+          //     case 'polyline':
+          //         if (feature.geometry.paths.length > 0)
+          //             process = 'paths';
+          //         break;
+
+          //     case 'polygon':
+          //         if (feature.geometry.rings.length > 0)
+          //             process = 'rings';
+          //         break;
+
+          //     default:
+          //         break;
+          // }
+
+          // if (process !== '') {
+          //     geometry = feature.geometry;
+          //     for(var p=0,pl = geometry[process].length;p<pl;p++) {
+          //         var newFeature = new Graphic(feature.toJson());
+          //         var newGeometry = null;
+
+          //         switch(process) {
+          //             case 'rings':
+          //                 newGeometry = new Polygon({ 
+          //                     "rings":[
+          //                         JSON.parse(JSON.stringify(geometry[process][p]))
+          //                     ],
+          //                     "spatialReference": geometry.spatialReference.toJson()
+          //                 });
+          //                 break;
+
+          //             case 'paths':
+          //                 newGeometry = new Polyline({ 
+          //                     "paths":[
+          //                         JSON.parse(JSON.stringify(geometry[process][p]))
+          //                     ],
+          //                     "spatialReference": geometry.spatialReference.toJson()
+          //                 });
+          //                 break;
+          //         }
+          //         newFeature.setGeometry(newGeometry);
+          //         newFeatures.push(newFeature); 
+          //     }
+          // } else {
+          //     newFeatures.push(feature);
+          // }
+
+          // // Apply the changes
+          // var layer = this.currentFeature.getLayer();
+          // layer.applyEdits(newFeatures, null, [feature],
+          //   lang.hitch(this, function (adds, updates, deletes) {
+          //     if (adds && updates.length > 0 && adds[0].hasOwnProperty("error")) {
+          //       Message({
+          //         message: adds[0].error.toString()
+          //       });
+          //     }
+          //     if (deletes && deletes.length > 0 && deletes[0].hasOwnProperty("error")) {
+          //       Message({
+          //         message: deletes[0].error.toString()
+          //       });
+          //     }
+
+          //     // Return to templates 
+          //     this._showTemplate(true);
+
+          //   }), lang.hitch(this, function (err) {
+          //     Message({
+          //       message: err.message.toString() + "\n" + err.details
+          //     });
+          //   }));
+        },
+
+
+
+
+
+
+        /*---------------------------------------------------------
           UTIL FUNCTIONS */
+
         _mapFields: function (originalFieldInfos, editmode) {
             var fieldInfos = [];
             var mapType = 'field';

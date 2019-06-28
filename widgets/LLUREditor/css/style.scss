@@ -71,6 +71,76 @@
         margin: 0;
         text-align: left;
     }
+
+    /* Custom Edit Tools */
+
+    .esriCTGeometryEditor {
+      margin-bottom: 5px;
+
+      &.atiButtons {
+        >.esriCTGeometryEditor{
+          margin-right: 5px;
+          margin-bottom: 10px;
+        }
+
+
+      }
+    }
+
+    .esriCTMergeFeatures {
+        height: 35px;
+        width: 35px;
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: left;
+        background-image: url(../images/merge.png);
+        cursor: pointer;
+    }
+
+    .esriCTExplodeFeatures {
+        height: 35px;
+        width: 35px;
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: left;
+        background-image: url(../images/explode.png);
+        cursor: pointer;
+    }
+
+    .esriCTCutFeatures {
+        height: 35px;
+        width: 35px;
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: left;
+        background-image: url(../images/cut-inactive.png);
+        cursor: pointer;
+    
+        &.btn-toggle {
+            background-image: url(../images/cut-active.png);
+        }
+    }
+
+    .esriCTEditVertices {
+        height: 35px;
+        width: 35px;
+        background-size: 35px;
+        background-repeat: no-repeat;
+        background-position: center;
+        float: left;
+        background-image: url(../images/cut-inactive.png);
+        cursor: pointer;
+    
+        &.btn-toggle {
+            background-image: url(../images/cut-active.png);
+        }
+    }
+
+
+
 }
 
     .dijitButtonHover {

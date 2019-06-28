@@ -1,56 +1,93 @@
-.llur-editor h3 {
-  font-size: 1.2em; }
-
-.llur-editor h3, .llur-editor p {
-  margin-top: 0; }
-
-.llur-editor .jimu-tab3 {
-  height: 100%; }
-
-.llur-editor .search-pane,
-.llur-editor .secondary-pane {
-  height: 100%;
-  width: 100%;
-  background-color: #f8f8f8;
-  position: relative; }
-  .llur-editor .search-pane > *,
-  .llur-editor .secondary-pane > * {
-    width: 100%; }
-
-.llur-editor .instructions {
-  padding: 5px; }
-
-.llur-editor .templatePicker {
-  position: relative;
-  height: 296px !important; }
-
-.llur-editor .templatePicker .grid .groupLabel {
-  font-size: 2em; }
-
-.llur-editor .jimu-widget-sefilterEditor .flDropDown {
-  height: 30px !important;
-  width: 100%;
-  margin-top: 2px;
-  margin-bottom: 10px; }
-
-.llur-editor .jimu-widget-sefilterEditor .searchtextbox {
-  height: 30px !important;
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 5px; }
-
-.llur-editor .jimu-btn.layer-btn {
-  margin-right: 5px;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  line-height: 26px;
-  font-size: 12px;
-  min-width: 50px; }
-
-.llur-editor .dijitDropDownButton {
-  margin: 0;
-  text-align: left; }
+.llur-editor {
+  /* Custom Edit Tools */ }
+  .llur-editor h3 {
+    font-size: 1.2em; }
+  .llur-editor h3, .llur-editor p {
+    margin-top: 0; }
+  .llur-editor .jimu-tab3 {
+    height: 100%; }
+  .llur-editor .search-pane,
+  .llur-editor .secondary-pane {
+    height: 100%;
+    width: 100%;
+    background-color: #f8f8f8;
+    position: relative; }
+    .llur-editor .search-pane > *,
+    .llur-editor .secondary-pane > * {
+      width: 100%; }
+  .llur-editor .instructions {
+    padding: 5px; }
+  .llur-editor .templatePicker {
+    position: relative;
+    height: 296px !important; }
+  .llur-editor .templatePicker .grid .groupLabel {
+    font-size: 2em; }
+  .llur-editor .jimu-widget-sefilterEditor .flDropDown {
+    height: 30px !important;
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 10px; }
+  .llur-editor .jimu-widget-sefilterEditor .searchtextbox {
+    height: 30px !important;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px; }
+  .llur-editor .jimu-btn.layer-btn {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    line-height: 26px;
+    font-size: 12px;
+    min-width: 50px; }
+  .llur-editor .dijitDropDownButton {
+    margin: 0;
+    text-align: left; }
+  .llur-editor .esriCTGeometryEditor {
+    margin-bottom: 5px; }
+    .llur-editor .esriCTGeometryEditor.atiButtons > .esriCTGeometryEditor {
+      margin-right: 5px;
+      margin-bottom: 10px; }
+  .llur-editor .esriCTMergeFeatures {
+    height: 35px;
+    width: 35px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background-image: url(../images/merge.png);
+    cursor: pointer; }
+  .llur-editor .esriCTExplodeFeatures {
+    height: 35px;
+    width: 35px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background-image: url(../images/explode.png);
+    cursor: pointer; }
+  .llur-editor .esriCTCutFeatures {
+    height: 35px;
+    width: 35px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background-image: url(../images/cut-inactive.png);
+    cursor: pointer; }
+    .llur-editor .esriCTCutFeatures.btn-toggle {
+      background-image: url(../images/cut-active.png); }
+  .llur-editor .esriCTEditVertices {
+    height: 35px;
+    width: 35px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+    background-image: url(../images/cut-inactive.png);
+    cursor: pointer; }
+    .llur-editor .esriCTEditVertices.btn-toggle {
+      background-image: url(../images/cut-active.png); }
 
 .dijitButtonHover .dijitButtonNode {
   /*background-color: transparent !important;*/
