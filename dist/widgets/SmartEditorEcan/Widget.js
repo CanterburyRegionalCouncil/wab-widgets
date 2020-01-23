@@ -235,8 +235,8 @@ define(["dojo/Stateful", 'dojo', 'dijit', 'dojo/_base/declare', 'dojo/_base/lang
       }
 
       /* BEGIN CHANGE - Handle multiple selected features 
-        // ORIGINAL CODE
-        var firstFeature = features[0];
+       // ORIGINAL CODE
+       var firstFeature = features[0];
       if (this._validateFeatureChanged() && this.currentFeature) {
         // do not show templatePicker after saving
         if (this.config.editor.displayPromptOnSave && this.config.editor.displayPromptOnSave === true) {
@@ -245,7 +245,7 @@ define(["dojo/Stateful", 'dojo', 'dijit', 'dojo/_base/declare', 'dojo/_base/lang
       } else {
         this.load_from_featureaction(featureLayer, firstFeature);
       }
-        */
+       */
 
       if (this._validateFeatureChanged() && this.currentFeature) {
         // do not show templatePicker after saving
@@ -3862,7 +3862,7 @@ define(["dojo/Stateful", 'dojo', 'dijit', 'dojo/_base/declare', 'dojo/_base/lang
       this.cacheLayer.selectFeatures(queryTask, FeatureLayer.SELECTION_NEW);
 
       /*
-        this.currentFeature = this.updateFeatures[0] = updateFeatures[0];
+       this.currentFeature = this.updateFeatures[0] = updateFeatures[0];
       this.getConfigDefaults();
       this.geometryChanged = false;
       if (this._attributeInspectorTools) {
@@ -3873,7 +3873,7 @@ define(["dojo/Stateful", 'dojo', 'dijit', 'dojo/_base/declare', 'dojo/_base/lang
       this.currentLayerInfo.isCache = true;
       this._toggleDeleteButton(false);
       //this._toggleEditGeoSwitch(false);
-        //this._createSmartAttributes();
+       //this._createSmartAttributes();
       //
       this._enableAttrInspectorSaveButton(this._validateAttributes());
       */

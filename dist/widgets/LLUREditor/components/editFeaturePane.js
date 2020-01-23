@@ -240,10 +240,10 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/array", "dojo/on", 
                     var c = confirm(this.i18n.edit.submitConfirm);
                     if (c) {
                         var rec = this.attributeInspector._selection[0];
-                          //determine record type
+                         //determine record type
                         var recordType = this.currentTargetTemplate.apiSettings.mappingClass;
                         var saveRec = automapperUtil.map('graphic',recordType, rec);
-                          //calll the widget
+                         //calll the widget
                         this.wabWidget.saveChanges(rec, saveRec);
                     }
                     */
@@ -385,19 +385,19 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/array", "dojo/on", 
             var attachmentResult = true;
             var rowsWithGDBRequiredFieldErrors = this._validateRequiredFields();
             var featureHasEdits = this._validateFeatureChanged();
-              var rowsWithSmartErrors = [];
+             var rowsWithSmartErrors = [];
             var formValid = true;
             if (this._smartAttributes !== undefined) {
                 if (this._smartAttributes !== null) {
                     rowsWithSmartErrors = this._smartAttributes.toggleFields(changeDefaultState);
                 }
             }
-                      if (this._attributeInspectorTools !== undefined) {
+                     if (this._attributeInspectorTools !== undefined) {
                 if (this._attributeInspectorTools !== null) {
                     formValid = this._attributeInspectorTools.formValid();
                 }
             }
-              if (featureHasEdits && this.currentLayerInfo && this.currentLayerInfo.attachmentValidations) {
+             if (featureHasEdits && this.currentLayerInfo && this.currentLayerInfo.attachmentValidations) {
                 arrayUtils.forEach(this.currentLayerInfo.attachmentValidations.Actions,
                     lang.hitch(this, function (action) {
                         var attachmentObj = {};
@@ -408,7 +408,7 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/array", "dojo/on", 
                         }
                     })
                 );
-                  //Perform action based on feature is being created or updated
+                 //Perform action based on feature is being created or updated
                 if (this.attrInspector._attachmentUploader) {
                     attachmentResult =
                         this.performAction(this.attrInspector._attachmentUploader, attachmentValidationResult, true);

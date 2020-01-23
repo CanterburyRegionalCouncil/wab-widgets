@@ -1374,7 +1374,7 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
     /*
     Attempt to match DEGREES coord format
     Returns matchedCoords if successful
-      Matches decimal lat lng, such as:
+     Matches decimal lat lng, such as:
     -42.493365
     172.385101
     -42
@@ -1405,7 +1405,7 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
     /*
     Attempt to match DEGREES & MINUTES coord format
     Returns matchedCoords if successful
-        Matches lat lng, such as:
+       Matches lat lng, such as:
     -38 29.295
     38 29.295S
     -38 29.295S
@@ -1432,7 +1432,7 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
     /*
     Attempt to match DEGREES, MINUTES & SECONDS coord format
     Returns matchedCoords if successful
-        Matches lat lng, such as:
+       Matches lat lng, such as:
     -38°29′18″
     38°29′18″S
     178°03′31″

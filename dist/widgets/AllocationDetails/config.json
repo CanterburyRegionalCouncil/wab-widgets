@@ -1,0 +1,11 @@
+{
+  "serviceUrl": "https://waterdata-dev-apis.azure-api.net/consentsreporting/v1/Plan/GWAZ0023",
+  "subscriptionKey": "be239980a62f4477b12032468485f554",
+  "sourceDatasets":[
+	{
+		"serviceUrl":"https://ecanmapsdev.ecan.govt.nz/server1/rest/services/WaterData/WD_GWAZs/MapServer/0",
+		"featurIdField":"GeoPK"
+	}
+  ]
+}
+

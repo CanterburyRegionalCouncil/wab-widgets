@@ -949,7 +949,7 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
                 this.map.disableSnapping();
                 return;
             }
-              //If enable
+             //If enable
             this.map.enableSnapping({
                 "layerInfos" : [{
                         "layer" : this.drawBox.drawLayer
@@ -3734,13 +3734,13 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
                 
                 var loading = new LoadingIndicator();
                 loading.placeAt(this.domNode);
-                  LayerInfos
+                 LayerInfos
                     .getInstance(this.map, this.map.itemInfo)
                     .then(lang.hitch(this, function(layerInfos){
                         if(!this.domNode){
                           return;
                         }
-                          loading.destroy();
+                         loading.destroy();
                         var layers = [this._polygonLayer, this._polylineLayer,
                             this._pointLayer, this._labelLayer];
                         layerInfos.addFeatureCollection(layers, this.nls.drawingCollectionName);
@@ -3816,7 +3816,7 @@ define(['dojo/_base/declare', 'dijit/_WidgetsInTemplateMixin', 'jimu/BaseWidget'
                         }
                     ]
                 });
-              } else { */
+             } else { */
             this._convertFeaturesToDrawings(featureSet);
             /*}*/
         },

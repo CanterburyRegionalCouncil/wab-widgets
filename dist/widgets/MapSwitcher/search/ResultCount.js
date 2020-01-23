@@ -15,33 +15,33 @@
 ///////////////////////////////////////////////////////////////////////////
 define(["dojo/_base/declare", "dojo/number", "./SearchComponent", "dojo/text!./templates/ResultCount.html", "dojo/i18n!../nls/strings", "./util"], function (declare, number, SearchComponent, template, i18n, util) {
 
-      var oThisClass = declare([SearchComponent], {
+  var oThisClass = declare([SearchComponent], {
 
-            i18n: i18n,
-            templateString: template,
+    i18n: i18n,
+    templateString: template,
 
-            typePlural: i18n.search.resultCount.itemPlural,
-            typeSingular: i18n.search.resultCount.itemSingular,
+    typePlural: i18n.search.resultCount.itemPlural,
+    typeSingular: i18n.search.resultCount.itemSingular,
 
-            postCreate: function postCreate() {
-                  this.inherited(arguments);
-            },
+    postCreate: function postCreate() {
+      this.inherited(arguments);
+    },
 
-            /* SearchComponent API ============================================= */
+    /* SearchComponent API ============================================= */
 
-            processResults: function processResults(searchResponse) {
-                  var nHits = searchResponse.total;
-                  var sType = this.typePlural;
-                  if (nHits === 1) {
-                        sType = this.typeSingular;
-                  }
-                  var s = this.i18n.search.resultCount.countPattern;
-                  s = s.replace("{count}", number.format(nHits));
-                  s = s.replace("{type}", sType);
-                  util.setNodeText(this.messageNode, s);
-            }
+    processResults: function processResults(searchResponse) {
+      var nHits = searchResponse.total;
+      var sType = this.typePlural;
+      if (nHits === 1) {
+        sType = this.typeSingular;
+      }
+      var s = this.i18n.search.resultCount.countPattern;
+      s = s.replace("{count}", number.format(nHits));
+      s = s.replace("{type}", sType);
+      util.setNodeText(this.messageNode, s);
+    }
 
-      });
+  });
 
-      return oThisClass;
+  return oThisClass;
 });
