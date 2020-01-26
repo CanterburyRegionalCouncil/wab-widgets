@@ -5,6 +5,11 @@ define([
     "dojo/on",
     "dojo/Deferred",
     "dijit/_WidgetsInTemplateMixin",
+
+    "esri/layers/FeatureLayer",
+    "esri/tasks/query",
+    "esri/tasks/QueryTask",
+
     'jimu/BaseWidget'
 ],
 function(
@@ -13,6 +18,11 @@ function(
     array,
     on,
     Deferred,
+
+    FeatureLayer,
+    Query,
+    QueryTask,
+
     BaseWidget
 ) {
   //To create a widget, you need to derive from BaseWidget.
@@ -89,9 +99,53 @@ function(
             this._loadState = 'loading';
             this._layers = [];
 
+            array.forEach(this.config.sourceDatasets, 
+                lang.hitch(this, 
+                    function(dataset) {
+                        dataset.layer = new FeatureLayer(dataset.serviceUrl);
+                        dataset.layer.on("load", 
+                            lang.hitch(this, 
+                                function(evt) {
+                                    this._checkLayers();
+                                }
+                            )
+                        );
+                        this._layers.push(dataset);
+                    }
+                )
+            );
+        }
+    },
 
+    _addMapEvents: function(toggleOn) {
+        if (toggleOn) {
+            // add map event
+            this._mapClick = map.on("click", 
+                lang.hitch(this, 
+                    function(evt){
+                        this._queryFeatures(evt.mapPoint);
+                    } 
+                )
+            );
+        } else {
+            if (this._mapClick) {
+                this._mapClick.remove();
+                this._mapClick = null;
+            }
+        }
+    },
 
+    _queryFeatures: function (pt) {
 
+    },
+
+    _checkLayers: function () {
+        if (this._loadState === 'loading') {
+            var loadingFinished = true;
+            array.forEach(this._layers, lang.hitch(this, function (layerSetting) {
+                if !loadingFinished && !layerSetting.layer.loaded
+
+            }))
         }
     },
 
